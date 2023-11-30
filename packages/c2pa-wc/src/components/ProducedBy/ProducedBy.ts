@@ -18,12 +18,12 @@ import '../PanelSection';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-produced-by': ProducedBy;
+    'cai-produced-by-dm-plugin': ProducedBy;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-produced-by': any;
+      'cai-produced-by-dm-plugin': any;
     }
   }
 }
@@ -36,7 +36,7 @@ const defaultConfig: ProducedByConfig = {
   stringMap: defaultStringMap,
 };
 
-@customElement('cai-produced-by')
+@customElement('cai-produced-by-dm-plugin')
 export class ProducedBy extends ConfigurablePanelSection(LitElement, {
   dataSelector: (manifestStore) => manifestStore.producer?.name,
   config: defaultConfig,
@@ -46,11 +46,11 @@ export class ProducedBy extends ConfigurablePanelSection(LitElement, {
   }
 
   render() {
-    return this.renderSection(html` <cai-panel-section
+    return this.renderSection(html` <cai-panel-section-dm-plugin
       header=${this._config.stringMap['produced-by.header']}
       helpText=${this._config.stringMap['produced-by.helpText']}
     >
       <div>${this._data}</div>
-    </cai-panel-section>`);
+    </cai-panel-section-dm-plugin>`);
   }
 }

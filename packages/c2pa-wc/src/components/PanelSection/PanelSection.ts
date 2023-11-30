@@ -16,17 +16,17 @@ import '../Tooltip';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-panel-section': PanelSection;
+    'cai-panel-section-dm-plugin': PanelSection;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-panel-section': any;
+      'cai-panel-section-dm-plugin': any;
     }
   }
 }
 
-@customElement('cai-panel-section')
+@customElement('cai-panel-section-dm-plugin')
 export class PanelSection extends LitElement {
   @property({ type: String })
   header = '';
@@ -68,9 +68,9 @@ export class PanelSection extends LitElement {
           <div class="heading-text">${this.header}</div>
           <slot name="help">
             ${this.helpText
-              ? html`<cai-tooltip autoPlacement=${false}>
+              ? html`<cai-tooltip-dm-plugin autoPlacement=${false}>
                   <div slot="content">${this.helpText}</div>
-                </cai-tooltip>`
+                </cai-tooltip-dm-plugin>`
               : nothing}
           </slot>
         </div>

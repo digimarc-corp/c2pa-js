@@ -80,7 +80,7 @@ function renderElement({ prefix, isMonochrome, name, svg }) {
       }
     }
 
-    customElements.define('${prefix}-icon-${elementName}', ${className});
+    customElements.define('${prefix}-icon-${elementName}-dm-plugin', ${className});
   `;
   return prettier.format(code, { parser: 'typescript' });
 }

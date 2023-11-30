@@ -19,6 +19,7 @@ rush install
 Build all packages:
 ```
 rush build 
+./make-UI-compatible.sh
 ```
 
 To run an individual package's `package.json` commands, use the `rushx` command from within that package's directory, e.g.:

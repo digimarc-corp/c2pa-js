@@ -30,17 +30,17 @@ import { defaultStyles } from '../../styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-popover': Popover;
+    'cai-popover-dm-plugin': Popover;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-popover': any;
+      'cai-popover-dm-plugin': any;
     }
   }
 }
 
-@customElement('cai-popover')
+@customElement('cai-popover-dm-plugin')
 export class Popover extends LitElement {
   private _updateCleanupFn: Function | null = null;
 
@@ -182,7 +182,7 @@ export class Popover extends LitElement {
           height: 8px;
           transform: rotate(45deg);
         }
-        .hidden-layer {
+        .hidden-layer-dm-plugin {
           position: absolute;
           left: calc(var(--cai-popover-icon-size, 24px) * -1);
           width: var(--cai-popover-icon-size, 24px);
@@ -357,7 +357,7 @@ export class Popover extends LitElement {
         ${this.arrow ? html`<div id="arrow"></div>` : null}
       </div>
       <div id="trigger">
-        <div class="hidden-layer"></div>
+        <div class="hidden-layer-dm-plugin"></div>
         <slot name="trigger"></slot>
       </div>
     </div>`;

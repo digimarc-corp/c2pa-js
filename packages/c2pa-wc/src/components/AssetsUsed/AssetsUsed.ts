@@ -20,12 +20,12 @@ import '../PanelSection';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-assets-used': AssetsUsed;
+    'cai-assets-used-dm-plugin': AssetsUsed;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-assets-used': any;
+      'cai-assets-used-dm-plugin': any;
     }
   }
 }
@@ -38,7 +38,7 @@ const defaultConfig: AssetsUsedConfig = {
   stringMap: defaultStringMap,
 };
 
-@customElement('cai-assets-used')
+@customElement('cai-assets-used-dm-plugin')
 export class AssetsUsed extends ConfigurablePanelSection(LitElement, {
   dataSelector: (manifestStore) => manifestStore.ingredients,
   isEmpty: (data) => !data.length,
@@ -49,7 +49,7 @@ export class AssetsUsed extends ConfigurablePanelSection(LitElement, {
       defaultStyles,
       baseSectionStyles,
       css`
-        .section-assets-used {
+        .section-assets-used-dm-plugin {
           --cai-thumbnail-size: 48px;
           display: grid;
           color: blue;
@@ -65,21 +65,21 @@ export class AssetsUsed extends ConfigurablePanelSection(LitElement, {
   }
 
   render() {
-    return this.renderSection(html` <cai-panel-section
+    return this.renderSection(html` <cai-panel-section-dm-plugin
       header=${this._config.stringMap['assets-used.header']}
       helpText=${this._config.stringMap['assets-used.helpText']}
     >
-      <div class="section-assets-used">
+      <div class="section-assets-used-dm-plugin">
         ${this._data?.map(
           (ingredient) => html`
-            <cai-thumbnail
-              class="section-assets-used-thumbnail"
+            <cai-thumbnail-dm-plugin
+              class="section-assets-used-thumbnail-dm-plugin"
               src=${ingredient.thumbnail}
               badge=${getBadgeFromIngredient(ingredient)}
-            ></cai-thumbnail>
+            ></cai-thumbnail-dm-plugin>
           `,
         )}
       </div>
-    </cai-panel-section>`);
+    </cai-panel-section-dm-plugin>`);
   }
 }

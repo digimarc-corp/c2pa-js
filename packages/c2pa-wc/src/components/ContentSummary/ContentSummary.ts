@@ -19,12 +19,12 @@ import '../PanelSection';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-content-summary': ContentSummary;
+    'cai-content-summary-dm-plugin': ContentSummary;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-content-summary': any;
+      'cai-content-summary-dm-plugin': any;
     }
   }
 }
@@ -37,7 +37,7 @@ const defaultConfig: ContentSummaryConfig = {
   stringMap: defaultStringMap,
 };
 
-@customElement('cai-content-summary')
+@customElement('cai-content-summary-dm-plugin')
 export class ContentSummary extends ConfigurablePanelSection(LitElement, {
   dataSelector: (manifestStore) => manifestStore?.generativeInfo,
   config: defaultConfig,
@@ -47,11 +47,11 @@ export class ContentSummary extends ConfigurablePanelSection(LitElement, {
       defaultStyles,
       baseSectionStyles,
       css`
-        .section-process-content {
+        .section-process-content-dm-plugin {
           display: flex;
           align-items: center;
         }
-        .section-icon-content {
+        .section-icon-content-dm-plugin {
           display: flex;
           align-items: flex-start;
           gap: var(--cai-icon-spacing, 8px);
@@ -61,16 +61,16 @@ export class ContentSummary extends ConfigurablePanelSection(LitElement, {
   }
 
   render() {
-    return this.renderSection(html`<cai-panel-section
+    return this.renderSection(html`<cai-panel-section-dm-plugin
       header=${this._config.stringMap['content-summary.header']}
       helpText=${this._config.stringMap['content-summary.helpText']}
     >
-      <div class="section-icon-content">
-        <cai-icon-generic-info></cai-icon-generic-info>
+      <div class="section-icon-content-dm-plugin">
+        <cai-icon-generic-info-dm-plugin></cai-icon-generic-info-dm-plugin>
         <span>
           ${this._config.stringMap['content-summary.content.aiGenerated']}
         </span>
       </div>
-    </cai-panel-section>`);
+    </cai-panel-section-dm-plugin>`);
   }
 }

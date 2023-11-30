@@ -27,12 +27,12 @@ import '../MinimumViableProvenance';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-manifest-summary': ManifestSummary;
+    'cai-manifest-summary-dm-plugin': ManifestSummary;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-manifest-summary': any;
+      'cai-manifest-summary-dm-plugin': any;
     }
   }
 }
@@ -65,7 +65,7 @@ const defaultConfig: ManifestSummaryConfig = {
   },
 };
 
-@customElement('cai-manifest-summary')
+@customElement('cai-manifest-summary-dm-plugin')
 export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
   static readonly cssParts = {
     viewMore: 'manifest-summary-view-more',
@@ -75,11 +75,11 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
     return [
       defaultStyles,
       css`
-        #container {
+        #container-dm-plugin {
           width: var(--cai-manifest-summary-width, 320px);
         }
 
-        #content-container {
+        #content-container-dm-plugin {
           padding: var(--cai-manifest-summary-content-padding, 20px);
           max-height: var(--cai-manifest-summary-content-max-height, 550px);
           border-bottom-width: var(
@@ -99,7 +99,7 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
           overflow-x: hidden;
         }
 
-        #content-container > *:not(:first-child):not([empty]),
+        #content-container-dm-plugin > *:not(:first-child):not([empty]),
         ::slotted(*) {
           padding-top: var(--cai-manifest-summary-section-spacing, 20px);
           margin-top: var(--cai-manifest-summary-section-spacing, 20px);
@@ -117,11 +117,11 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
           ) !important;
         }
 
-        #view-more-container {
+        #view-more-container-dm-plugin {
           padding: var(--cai-manifest-summary-view-more-padding, 20px);
         }
 
-        #view-more {
+        #view-more-dm-plugin {
           display: block;
           transition: all 150ms ease-in-out;
           background-color: transparent;
@@ -135,7 +135,7 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
           color: var(--cai-primary-color);
         }
 
-        #view-more:hover {
+        #view-more-dm-plugin:hover {
           background-color: #eeeeee;
         }
       `,
@@ -159,12 +159,12 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
       return null;
     }
 
-    return html`<div id="container">
-      <div id="content-container">
-        <cai-minimum-viable-provenance
+    return html`<div id="container-dm-plugin">
+      <div id="content-container-dm-plugin">
+        <cai-minimum-viable-provenance-dm-plugin
           .manifestStore=${this.manifestStore}
           .config=${this._config}
-        ></cai-minimum-viable-provenance>
+        ></cai-minimum-viable-provenance-dm-plugin>
         <slot name="pre"></slot>
         ${this.manifestStore.error === 'error'
           ? html`
@@ -173,61 +173,61 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
           : html`
               ${this._config?.sections?.contentSummary
                 ? html`
-                    <cai-content-summary
+                    <cai-content-summary-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
-                    ></cai-content-summary>
+                    ></cai-content-summary-dm-plugin>
                   `
                 : nothing}
               ${this._config?.sections?.producedBy
                 ? html`
-                    <cai-produced-by
+                    <cai-produced-by-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
-                    ></cai-produced-by>
+                    ></cai-produced-by-dm-plugin>
                   `
                 : nothing}
               ${this._config?.sections?.producedWith
                 ? html`
-                    <cai-produced-with
+                    <cai-produced-with-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
-                    ></cai-produced-with>
+                    ></cai-produced-with-dm-plugin>
                   `
                 : nothing}
               ${this._config?.sections?.editsAndActivity
                 ? html`
-                    <cai-edits-and-activity
+                    <cai-edits-and-activity-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
-                    ></cai-edits-and-activity>
+                    ></cai-edits-and-activity-dm-plugin>
                   `
                 : nothing}
               ${this._config?.sections?.assetsUsed
                 ? html`
-                    <cai-assets-used
+                    <cai-assets-used-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
-                    ></cai-assets-used>
+                    ></cai-assets-used-dm-plugin>
                   `
                 : nothing}
               ${this._config?.sections?.socialMedia
                 ? html`
-                    <cai-social-media
+                    <cai-social-media-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
-                    ></cai-social-media>
+                    ></cai-social-media-dm-plugin>
                   `
                 : nothing}
             `}
         <slot></slot>
         <slot name="post"></slot>
       </div>
-      <div id="view-more-container">
+      <div id="view-more-container-dm-plugin">
         ${this.viewMoreUrl
           ? html`
               <a
-                id="view-more"
+                id="view-more-dm-plugin"
                 part=${ManifestSummary.cssParts.viewMore}
                 href=${this.viewMoreUrl}
                 target="_blank"

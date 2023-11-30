@@ -1,0 +1,1 @@
+sed -i '' 's|\"production\"!==process.env.NODE_ENV|true|g' ./packages/c2pa-wc/dist/components/Popover/popover.js

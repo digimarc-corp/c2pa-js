@@ -14,19 +14,19 @@ import { defaultStyles } from '../../styles';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-indicator': Indicator;
+    'cai-indicator-dm-plugin': Indicator;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-indicator': any;
+      'cai-indicator-dm-plugin': any;
     }
   }
 }
 
 type Variant = 'info-light' | 'info-dark' | 'warning' | 'error';
 
-@customElement('cai-indicator')
+@customElement('cai-indicator-dm-plugin')
 export class Indicator extends LitElement {
   /**
    * Image source - if set to undefined/null it will show a broken image icon
@@ -52,6 +52,12 @@ export class Indicator extends LitElement {
   }
 
   render() {
-    return html`<cai-icon-info class="icon" />`;
+    switch (this.variant) {
+      case 'warning':
+        return html`<cai-icon-missing-dm-plugin class="icon" />`;
+      case 'error':
+        return html`<cai-icon-alert-dm-plugin class="icon" />`;
+    }
+    return html`<cai-icon-info-dm-plugin class="icon" />`;
   }
 }

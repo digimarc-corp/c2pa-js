@@ -22,12 +22,12 @@ import '../PanelSection';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-minimum-viable-provenance': MinimumViableProvenance;
+    'cai-minimum-viable-provenance-dm-plugin': MinimumViableProvenance;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-minimum-viable-provenance': any;
+      'cai-minimum-viable-provenance-dm-plugin': any;
     }
   }
 }
@@ -42,7 +42,7 @@ const defaultConfig: MinimumViableProvenanceConfig = {
   dateFormatter: defaultDateFormatter,
 };
 
-@customElement('cai-minimum-viable-provenance')
+@customElement('cai-minimum-viable-provenance-dm-plugin')
 export class MinimumViableProvenance extends Configurable(
   LitElement,
   defaultConfig,
@@ -57,18 +57,18 @@ export class MinimumViableProvenance extends Configurable(
       defaultStyles,
       baseSectionStyles,
       css`
-      .minimum-viable-provenance-content {
+      .minimum-viable-provenance-content-dm-plugin {
         --cai-thumbnail-size: 48px;
         display: grid;
         grid-template-columns: 48px auto;
         grid-gap: 2px 10px;
         text-align: left;
       }
-      .minimum-viable-provenance-thumbnail {
+      .minimum-viable-provenance-thumbnail-dm-plugin {
         grid-column: 1;
         grid-row: 1 / 3;
       }
-      .minimum-viable-provenance-signer {
+      .minimum-viable-provenance-signer-dm-plugin {
         grid-column: 2;
         grid-row: 1;
         align-self: flex-end;
@@ -76,11 +76,11 @@ export class MinimumViableProvenance extends Configurable(
         grid-template-columns: min-content max-content;
         align-items: center;
       }
-      .minimum-viable-provenance-signer.no-date {
+      .minimum-viable-provenance-signer-dm-plugin.no-date {
         grid-row: span 2;
         height: 100%;
       }
-      .minimum-viable-provenance-date {
+      .minimum-viable-provenance-date-dm-plugin {
         grid-column: 2;
         grid-row: 2;
         color: var(--cai-secondary-color, #6e6e6e);
@@ -92,7 +92,7 @@ export class MinimumViableProvenance extends Configurable(
     const hasError = this.manifestStore?.error === 'error';
 
     const mvpClasses = {
-      'minimum-viable-provenance-signer': true,
+      'minimum-viable-provenance-signer-dm-plugin': true,
       'no-date': hasError,
     };
 
@@ -100,25 +100,25 @@ export class MinimumViableProvenance extends Configurable(
       ? parseISO(this.manifestStore?.signature.isoDateString)
       : undefined;
 
-    return html` <cai-panel-section
+    return html` <cai-panel-section-dm-plugin
       header=${this._config.stringMap['minimum-viable-provenance.header']}
       helpText=${this._config.stringMap['minimum-viable-provenance.helpText']}
     >
-      <div class="minimum-viable-provenance-content">
-        <cai-thumbnail
-          class="minimum-viable-provenance-thumbnail"
+      <div class="minimum-viable-provenance-content-dm-plugin">
+        <cai-thumbnail-dm-plugin
+          class="minimum-viable-provenance-thumbnail-dm-plugin"
           src=${this.manifestStore?.thumbnail}
-        ></cai-thumbnail>
+        ></cai-thumbnail-dm-plugin>
         <div class=${classMap(mvpClasses)}>
-          <cai-icon
+          <cai-icon-dm-plugin
             slot="icon"
             source=${this.manifestStore?.signature?.issuer}
-          ></cai-icon>
+          ></cai-icon-dm-plugin>
           <span> ${this.manifestStore?.signature?.issuer} </span>
         </div>
         ${!hasError
           ? html`
-              <div class="minimum-viable-provenance-date">
+              <div class="minimum-viable-provenance-date-dm-plugin">
                 ${isValid(signatureDate)
                   ? html`${this._config?.dateFormatter(signatureDate!)}`
                   : html`${this._config?.stringMap[
@@ -128,6 +128,6 @@ export class MinimumViableProvenance extends Configurable(
             `
           : nothing}
       </div>
-    </cai-panel-section>`;
+    </cai-panel-section-dm-plugin>`;
   }
 }

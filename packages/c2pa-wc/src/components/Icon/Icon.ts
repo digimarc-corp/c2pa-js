@@ -42,39 +42,39 @@ export class Icon extends LitElement {
   static readonly matchers = [
     {
       pattern: /photoshop/i,
-      icon: html`<cai-icon-photoshop></cai-icon-photoshop>`,
+      icon: html`<cai-icon-photoshop-dm-plugin></cai-icon-photoshop-dm-plugin>`,
     },
     {
       pattern: /adobe\sstock/i,
-      icon: html`<cai-icon-adobe-stock></cai-icon-adobe-stock>`,
+      icon: html`<cai-icon-adobe-stock-dm-plugin></cai-icon-adobe-stock-dm-plugin>`,
     },
     {
       pattern: /adobe/i,
-      icon: html`<cai-icon-adobe></cai-icon-adobe>`,
+      icon: html`<cai-icon-adobe-dm-plugin></cai-icon-adobe-dm-plugin>`,
     },
     {
       pattern: /behance\.net/i,
-      icon: html`<cai-icon-behance></cai-icon-behance>`,
+      icon: html`<cai-icon-behance-dm-plugin></cai-icon-behance-dm-plugin>`,
     },
     {
       pattern: /facebook\.com/i,
-      icon: html`<cai-icon-facebook></cai-icon-facebook>`,
+      icon: html`<cai-icon-facebook-dm-plugin></cai-icon-facebook-dm-plugin>`,
     },
     {
       pattern: /instagram\.com/i,
-      icon: html`<cai-icon-instagram></cai-icon-instagram>`,
+      icon: html`<cai-icon-instagram-dm-plugin></cai-icon-instagram-dm-plugin>`,
     },
     {
       pattern: /truepic/i,
-      icon: html`<cai-icon-truepic></cai-icon-truepic>`,
+      icon: html`<cai-icon-truepic-dm-plugin></cai-icon-truepic-dm-plugin>`,
     },
     {
       pattern: /twitter\.com/i,
-      icon: html`<cai-icon-twitter></cai-icon-twitter>`,
+      icon: html`<cai-icon-twitter-dm-plugin></cai-icon-twitter-dm-plugin>`,
     },
     {
       pattern: /lightroom/i,
-      icon: html`<cai-icon-lightroom></cai-icon-lightroom>`,
+      icon: html`<cai-icon-lightroom-dm-plugin></cai-icon-lightroom-dm-plugin>`,
     },
   ];
 
@@ -96,7 +96,7 @@ export class Icon extends LitElement {
         :host {
           max-height: var(--cai-icon-size, 16px);
         }
-        #container {
+        #container-dm-plugin {
           display: inline-block;
           width: var(--cai-icon-size, 16px);
           height: var(--cai-icon-size, 16px);
@@ -109,6 +109,8 @@ export class Icon extends LitElement {
   }
 
   render() {
-    return this.icon ? html`<div id="container">${this.icon}</div>` : nothing;
+    return this.icon
+      ? html`<div id="container-dm-plugin">${this.icon}</div>`
+      : nothing;
   }
 }

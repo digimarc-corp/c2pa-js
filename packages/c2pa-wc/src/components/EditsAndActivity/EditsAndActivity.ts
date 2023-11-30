@@ -19,12 +19,12 @@ import '../PanelSection';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-edits-and-activity': EditsAndActivity;
+    'cai-edits-and-activity-dm-plugin': EditsAndActivity;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-edits-and-activity': any;
+      'cai-edits-and-activity-dm-plugin': any;
     }
   }
 }
@@ -39,7 +39,7 @@ const defaultConfig: EditsAndActivityConfig = {
   showDescriptions: false,
 };
 
-@customElement('cai-edits-and-activity')
+@customElement('cai-edits-and-activity-dm-plugin')
 export class EditsAndActivity extends ConfigurablePanelSection(LitElement, {
   dataSelector: (manifestStore) => manifestStore.editsAndActivity,
   isEmpty: (data) => !data?.length,
@@ -50,12 +50,12 @@ export class EditsAndActivity extends ConfigurablePanelSection(LitElement, {
       defaultStyles,
       baseSectionStyles,
       css`
-        .section-edits-and-activity-content {
+        .section-edits-and-activity-content-dm-plugin {
           display: flex;
           flex-direction: column;
         }
 
-        .section-edits-and-activity-list {
+        .section-edits-and-activity-list-dm-plugin {
           display: flex;
           flex-direction: column;
           gap: var(--cai-edits-and-activity-item-spacing, 6px);
@@ -65,28 +65,28 @@ export class EditsAndActivity extends ConfigurablePanelSection(LitElement, {
           overflow: hidden;
         }
 
-        .section-edits-and-activity-list-item-term {
+        .section-edits-and-activity-list-item-term-dm-plugin {
           display: flex;
           align-items: center;
         }
 
-        .section-edits-and-activity-list-item-icon {
+        .section-edits-and-activity-list-item-icon-dm-plugin {
           margin-right: 8px;
           width: 16px;
         }
 
-        .section-edits-and-activity-list-item-label {
+        .section-edits-and-activity-list-item-label-dm-plugin {
           overflow: hidden;
           text-overflow: ellipsis;
           white-space: nowrap;
         }
 
-        .section-edits-and-activity-list-item-description {
+        .section-edits-and-activity-list-item-description-dm-plugin {
           color: var(--cai-secondary-color);
           margin-left: 0px;
         }
 
-        .section-edits-and-activity-list-item-description.has-icon {
+        .section-edits-and-activity-list-item-description-dm-plugin.has-icon {
           margin-left: 24px;
         }
       `,
@@ -95,23 +95,25 @@ export class EditsAndActivity extends ConfigurablePanelSection(LitElement, {
 
   render() {
     return this.renderSection(html`
-      <cai-panel-section
+      <cai-panel-section-dm-plugin
         header=${this._config.stringMap['edits-and-activity.header']}
         helpText=${this._config.stringMap['edits-and-activity.helpText']}
       >
-        <dl class="section-edits-and-activity-list">
+        <dl class="section-edits-and-activity-list-dm-plugin">
           ${this._data?.map(
             ({ icon, label, description }) => html`
-              <div class="section-edits-and-activity-list-item">
-                <dt class="section-edits-and-activity-list-item-term">
+              <div class="section-edits-and-activity-list-item-dm-plugin">
+                <dt class="section-edits-and-activity-list-item-term-dm-plugin">
                   ${icon
                     ? html`<img
-                        class="section-edits-and-activity-list-item-icon"
+                        class="section-edits-and-activity-list-item-icon-dm-plugin"
                         src=${icon}
                         alt=${label}
                       />`
                     : null}
-                  <span class="section-edits-and-activity-list-item-label">
+                  <span
+                    class="section-edits-and-activity-list-item-label-dm-plugin"
+                  >
                     ${label}
                   </span>
                 </dt>
@@ -119,7 +121,7 @@ export class EditsAndActivity extends ConfigurablePanelSection(LitElement, {
                   ? html`
                       <dd
                         class=${classMap({
-                          'section-edits-and-activity-list-item-description':
+                          'section-edits-and-activity-list-item-description-dm-plugin':
                             true,
                           'has-icon': !!icon,
                         })}
@@ -132,7 +134,7 @@ export class EditsAndActivity extends ConfigurablePanelSection(LitElement, {
             `,
           )}
         </dl>
-      </cai-panel-section>
+      </cai-panel-section-dm-plugin>
     `);
   }
 }

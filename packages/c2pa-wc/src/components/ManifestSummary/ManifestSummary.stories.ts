@@ -26,7 +26,7 @@ interface ArgTypes {
 
 export default {
   title: 'Components/ManifestSummary',
-  component: 'cai-manifest-summary',
+  component: 'cai-manifest-summary-dm-plugin',
   argTypes: {
     manifestStore: {
       control: {
@@ -70,12 +70,12 @@ const Base: Story<ArgTypes> = ({
   theme,
 }: ArgTypes) => {
   return html`
-    <cai-manifest-summary
+    <cai-manifest-summary-dm-plugin
       .manifestStore=${manifestStore}
       .config=${config}
       view-more-url=${viewMoreUrl}
       class=${theme}
-    ></cai-manifest-summary>
+    ></cai-manifest-summary-dm-plugin>
   `;
 };
 
@@ -97,27 +97,27 @@ export const AppendCustomSection: Story<ArgTypes> = ({
   theme,
 }: ArgTypes) => {
   return html`
-    <cai-manifest-summary
+    <cai-manifest-summary-dm-plugin
       .manifestStore=${manifestStore}
       .config=${config}
       view-more-url=${viewMoreUrl}
       class=${theme}
     >
-      <cai-panel-section
+      <cai-panel-section-dm-plugin
         slot="pre"
         header="Custom section"
         helpText="This is a custom section"
         >Number of ingredients:
-        ${manifestStore.ingredients?.length}</cai-panel-section
+        ${manifestStore.ingredients?.length}</cai-panel-section-dm-plugin
       >
-      <cai-panel-section
+      <cai-panel-section-dm-plugin
         slot="post"
         header="Custom section"
         helpText="This is a custom section"
         >Number of ingredients:
-        ${manifestStore.ingredients?.length}</cai-panel-section
+        ${manifestStore.ingredients?.length}</cai-panel-section-dm-plugin
       >
-    </cai-manifest-summary>
+    </cai-manifest-summary-dm-plugin>
   `;
 };
 AppendCustomSection.args = {

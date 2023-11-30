@@ -22,25 +22,31 @@ import '../../../assets/svg/color/missing.svg';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-thumbnail': Thumbnail;
+    'cai-thumbnail-dm-plugin': Thumbnail;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-thumbnail': any;
+      'cai-thumbnail-dm-plugin': any;
     }
   }
 }
 
 export type Badge = 'none' | 'info' | 'missing' | 'alert';
 
-@customElement('cai-thumbnail')
+@customElement('cai-thumbnail-dm-plugin')
 export class Thumbnail extends LitElement {
   static readonly badgeMap: Record<Badge, TemplateResult | typeof nothing> = {
     none: nothing,
-    info: html`<cai-icon-info class="badge-icon"></cai-icon-info>`,
-    missing: html`<cai-icon-missing class="badge-icon"></cai-icon-missing>`,
-    alert: html`<cai-icon-alert class="badge-icon"></cai-icon-alert>`,
+    info: html`<cai-icon-info-dm-plugin
+      class="badge-icon-dm-plugin"
+    ></cai-icon-info-dm-plugin>`,
+    missing: html`<cai-icon-missing-dm-plugin
+      class="badge-icon-dm-plugin"
+    ></cai-icon-missing-dm-plugin>`,
+    alert: html`<cai-icon-alert-dm-plugin
+      class="badge-icon-dm-plugin"
+    ></cai-icon-alert-dm-plugin>`,
   };
 
   /**
@@ -79,7 +85,7 @@ export class Thumbnail extends LitElement {
           width: var(--cai-thumbnail-size, 72px);
           height: var(--cai-thumbnail-size, 72px);
         }
-        .container {
+        .container-dm-plugin {
           position: relative;
           width: 100%;
           height: 100%;
@@ -93,15 +99,15 @@ export class Thumbnail extends LitElement {
           transition: box-shadow 200ms ease-in-out;
           box-shadow: 0 0 0 0 transparent;
         }
-        .selected {
+        .selected-dm-plugin {
           box-shadow: var(--cai-thumbnail-selected-shadow-offset-x, 0)
             var(--cai-thumbnail-selected-shadow-offset-y, 0)
             var(--cai-thumbnail-selected-shadow-blur, 0)
             var(--cai-thumbnail-selected-shadow-spread, 3px)
             var(--cai-thumbnail-selected-shadow-color, #1473e6);
         }
-        cai-tooltip.badge-tooltip,
-        .badge-no-tooltip {
+        cai-tooltip-dm-plugin.badge-tooltip-dm-plugin,
+        .badge-no-tooltip-dm-plugin {
           position: absolute;
           top: var(--cai-thumbnail-badge-icon-top, 1px);
           right: var(--cai-thumbnail-badge-icon-right, 1px);
@@ -110,17 +116,17 @@ export class Thumbnail extends LitElement {
           width: var(--cai-thumbnail-badge-icon-width, 20px);
           height: var(--cai-thumbnail-badge-icon-height, 20px);
         }
-        cai-tooltip.badge-tooltip {
+        cai-tooltip-dm-plugin.badge-tooltip-dm-plugin {
           pointer-events: auto;
         }
-        .badge-icon {
+        .badge-icon-dm-plugin {
           --cai-icon-width: var(--cai-thumbnail-badge-icon-width, 20px);
           --cai-icon-height: var(--cai-thumbnail-badge-icon-height, 20px);
         }
-        .included-badge {
+        .included-badge-dm-plugin {
           display: flex;
         }
-        .no-image {
+        .no-image-dm-plugin {
           --cai-icon-width: var(
             --cai-thumbnail-no-image-icon-width,
             var(--cai-icon-width, 20px)
@@ -140,31 +146,31 @@ export class Thumbnail extends LitElement {
 
   render() {
     const containerClasses = classPartMap({
-      container: true,
+      'container-dm-plugin': true,
       selected: this.selected,
     });
 
     return html`<style>
-        .container {
+        .container-dm-plugin {
           background: url(${this.src}) var(--cai-thumbnail-bgcolor, #eaeaea);
         }
       </style>
       <div class=${containerClasses}>
         <slot name="badge">
           ${this.badge !== 'none' && this.badgeHelpText
-            ? html`<cai-tooltip class="badge-tooltip">
+            ? html`<cai-tooltip-dm-plugin class="badge-tooltip-dm-plugin">
                 <div slot="content">${this.badgeHelpText}</div>
-                <div class="included-badge" slot="trigger">
+                <div class="included-badge-dm-plugin" slot="trigger">
                   ${Thumbnail.badgeMap[this.badge]}
                 </div>
-              </cai-tooltip>`
-            : html`<div class="badge-no-tooltip">
+              </cai-tooltip-dm-plugin>`
+            : html`<div class="badge-no-tooltip-dm-plugin">
                 ${Thumbnail.badgeMap[this.badge]}
               </div>`}
         </slot>
         ${!this.src
-          ? html`<div class="no-image">
-              <cai-icon-broken-image></cai-icon-broken-image>
+          ? html`<div class="no-image-dm-plugin">
+              <cai-icon-broken-image-dm-plugin></cai-icon-broken-image-dm-plugin>
             </div>`
           : nothing}
       </div>`;

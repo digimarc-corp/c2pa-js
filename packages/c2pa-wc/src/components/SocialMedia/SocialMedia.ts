@@ -18,12 +18,12 @@ import '../Icon';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-social-media': SocialMedia;
+    'cai-social-media-dm-plugin': SocialMedia;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-social-media': any;
+      'cai-social-media-dm-plugin': any;
     }
   }
 }
@@ -36,7 +36,7 @@ const defaultConfig: SocialMediaConfig = {
   stringMap: defaultStringMap,
 };
 
-@customElement('cai-social-media')
+@customElement('cai-social-media-dm-plugin')
 export class SocialMedia extends ConfigurablePanelSection(LitElement, {
   dataSelector: (manifestStore) => manifestStore?.socialAccounts,
   isEmpty: (data) => !data?.length,
@@ -47,7 +47,7 @@ export class SocialMedia extends ConfigurablePanelSection(LitElement, {
       defaultStyles,
       baseSectionStyles,
       css`
-        .section-social-media-list {
+        .section-social-media-list-dm-plugin {
           display: flex;
           flex-direction: column;
           gap: 6px;
@@ -57,12 +57,12 @@ export class SocialMedia extends ConfigurablePanelSection(LitElement, {
           overflow: hidden;
         }
 
-        .section-social-media-list-item {
+        .section-social-media-list-item-dm-plugin {
           display: flex;
           align-items: center;
         }
 
-        .section-social-media-list-item-link {
+        .section-social-media-list-item-link-dm-plugin {
           color: var(--cai-social-media-item-color, var(--cai-primary-color));
           overflow: hidden;
           text-overflow: ellipsis;
@@ -73,17 +73,19 @@ export class SocialMedia extends ConfigurablePanelSection(LitElement, {
   }
 
   render() {
-    return this.renderSection(html`<cai-panel-section
+    return this.renderSection(html`<cai-panel-section-dm-plugin
       header=${this._config.stringMap['social-media.header']}
       helpText=${this._config.stringMap['social-media.helpText']}
     >
-      <ul class="section-social-media-list">
+      <ul class="section-social-media-list-dm-plugin">
         ${this._data?.map(
           (socialAccount) => html`
-            <li class="section-social-media-list-item">
-              <cai-icon source="${socialAccount['@id']}"></cai-icon>
+            <li class="section-social-media-list-item-dm-plugin">
+              <cai-icon-dm-plugin
+                source="${socialAccount['@id']}"
+              ></cai-icon-dm-plugin>
               <a
-                class="section-social-media-list-item-link"
+                class="section-social-media-list-item-link-dm-plugin"
                 href=${socialAccount['@id']}
                 target="_blank"
               >
@@ -93,6 +95,6 @@ export class SocialMedia extends ConfigurablePanelSection(LitElement, {
           `,
         )}
       </ul>
-    </cai-panel-section>`);
+    </cai-panel-section-dm-plugin>`);
   }
 }

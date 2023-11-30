@@ -19,17 +19,17 @@ import '../Popover';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-tooltip': Tooltip;
+    'cai-tooltip-dm-plugin': Tooltip;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-tooltip': any;
+      'cai-tooltip-dm-plugin': any;
     }
   }
 }
 
-@customElement('cai-tooltip')
+@customElement('cai-tooltip-dm-plugin')
 export class Tooltip extends LitElement {
   @state()
   protected _isShown = false;
@@ -47,14 +47,14 @@ export class Tooltip extends LitElement {
     return [
       defaultStyles,
       css`
-        #trigger {
+        #trigger-dm-plugin {
           display: flex;
           --cai-icon-width: var(--cai-popover-icon-width, 16px);
           --cai-icon-height: var(--cai-popover-icon-height, 16px);
           --cai-icon-fill: var(--cai-popover-icon-fill, #a8a8a8);
           cursor: pointer;
         }
-        .content {
+        .content-dm-plugin {
           min-width: 165px;
           max-width: 235px;
           font-size: 13px;
@@ -66,10 +66,10 @@ export class Tooltip extends LitElement {
           z-index: 10;
           pointer-events: none;
         }
-        .content.shown {
+        .content-dm-plugin.shown {
           opacity: 1;
         }
-        .content.hidden {
+        .content-dm-plugin.hidden {
           display: none;
         }
       `,
@@ -83,21 +83,21 @@ export class Tooltip extends LitElement {
     };
 
     return html`
-      <cai-popover
-        id="popover"
+      <cai-popover-dm-plugin
+        id="popover-dm-plugin"
         arrow=${this.arrow}
         .autoPlacement=${this.autoPlacement}
         ?interactive=${false}
       >
-        <div id="trigger" slot="trigger">
+        <div id="trigger-dm-plugin" slot="trigger">
           <slot name="trigger">
-            <cai-icon-help></cai-icon-help>
+            <cai-icon-help-dm-plugin></cai-icon-help-dm-plugin>
           </slot>
         </div>
         <div class=${classMap(contentClassMap)} slot="content">
           <slot name="content"></slot>
         </div>
-      </cai-popover>
+      </cai-popover-dm-plugin>
     `;
   }
 }
