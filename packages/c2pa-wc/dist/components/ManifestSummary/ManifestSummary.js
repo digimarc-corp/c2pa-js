@@ -62,7 +62,7 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
         #view-more-dm-plugin:hover {
           background-color: #eeeeee;
         }
-      `]}render(){var i,o,t,s,n,a,m,c,d,p,u,g;return this.manifestStore?e`<div id="container-dm-plugin">
+      `]}render(){var i,o,t,s,n,a,m,c,d,p,u,g;if(!this.manifestStore)return null;let v;if(this.manifestStore.alert)switch(this.manifestStore.alert.type){case"warning":v="#f0ad4e";break;case"error":v="#d9534f";break;default:v="#5bc0de"}return e`<div id="container-dm-plugin">
       <div id="content-container-dm-plugin">
         <cai-minimum-viable-provenance-dm-plugin
           .manifestStore=${this.manifestStore}
@@ -79,10 +79,12 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
                     ></cai-content-summary-dm-plugin>
                   `:r}
               ${this.manifestStore.alert?e`
-                <div style="background-color: ${this.manifestStore.alert.type};">
-                    ${this.manifestStore.alert.message}
-                </div>
-            `:r}
+                    <div
+                      style="background-color: ${v}; border-radius: 10px;"
+                    >
+                      ${this.manifestStore.alert.message}
+                    </div>
+                  `:r}
               ${(null===(s=null===(t=this._config)||void 0===t?void 0:t.sections)||void 0===s?void 0:s.producedBy)?e`
                     <cai-produced-by-dm-plugin
                       .manifestStore=${this.manifestStore}
@@ -129,4 +131,4 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
               </a>
             `:r}
       </div>
-    </div>`:null}};u.cssParts={viewMore:"manifest-summary-view-more"},i([o({type:Object,hasChanged:m})],u.prototype,"manifestStore",void 0),i([o({type:String,attribute:"view-more-url"})],u.prototype,"viewMoreUrl",void 0),u=l=i([n("cai-manifest-summary-dm-plugin")],u);
+    </div>`}};u.cssParts={viewMore:"manifest-summary-view-more"},i([o({type:Object,hasChanged:m})],u.prototype,"manifestStore",void 0),i([o({type:String,attribute:"view-more-url"})],u.prototype,"viewMoreUrl",void 0),u=l=i([n("cai-manifest-summary-dm-plugin")],u);
