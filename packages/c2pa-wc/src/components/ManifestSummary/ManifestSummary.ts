@@ -164,6 +164,7 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
     let alertColor;
 
     if (this.manifestStore.alert) {
+      console.log(this.manifestStore.alert.type);
       switch (this.manifestStore.alert.type) {
         case 'warning':
           alertColor = '#f0ad4e';
@@ -174,6 +175,7 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
         default:
           alertColor = '#5bc0de';
       }
+      console.log(alertColor);
     }
 
     return html`<div id="container-dm-plugin">
