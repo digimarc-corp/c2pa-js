@@ -2,6 +2,40 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.17.7",
+      "tag": "c2pa_v0.17.7",
+      "date": "Thu, 11 Jan 2024 20:02:01 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Support AVI and PDF"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.10.5`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.17.6",
+      "tag": "c2pa_v0.17.6",
+      "date": "Tue, 05 Dec 2023 22:00:22 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Expose claimGeneratorInfo"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.10.4`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.17.5",
       "tag": "c2pa_v0.17.5",
       "date": "Wed, 04 Oct 2023 22:10:09 GMT",

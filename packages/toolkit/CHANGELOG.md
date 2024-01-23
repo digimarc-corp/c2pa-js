@@ -1,6 +1,20 @@
 # Change Log - @contentauth/toolkit
 
-This log was last generated on Wed, 04 Oct 2023 21:32:12 GMT and should not be manually modified.
+This log was last generated on Thu, 11 Jan 2024 20:02:01 GMT and should not be manually modified.
+
+## 0.10.5
+Thu, 11 Jan 2024 20:02:01 GMT
+
+### Patches
+
+- Update c2pa-rs version for PDF/AVI support
+
+## 0.10.4
+Tue, 05 Dec 2023 22:00:22 GMT
+
+### Patches
+
+- Add type for claim_generator_info
 
 ## 0.10.3
 Wed, 04 Oct 2023 21:32:12 GMT
