@@ -31,6 +31,7 @@ export interface ManifestSummaryConfig extends Pick<MinimumViableProvenanceConfi
     stringMap: Record<string, string>;
     sections?: {
         assetsUsed?: boolean;
+        alert?: boolean;
         editsAndActivity?: boolean;
         producedBy?: boolean;
         producedWith?: boolean;

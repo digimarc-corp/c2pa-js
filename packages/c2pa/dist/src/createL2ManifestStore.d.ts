@@ -34,6 +34,7 @@ export interface L2ManifestStore {
     isBeta: boolean;
     error: ErrorStatus;
     validationStatus: ValidationStatus[];
+    alert?: string;
 }
 export interface L2Ingredient {
     title: string;

@@ -43,6 +43,7 @@ export interface ManifestSummaryConfig
   stringMap: Record<string, string>;
   sections?: {
     assetsUsed?: boolean;
+    alert?: boolean;
     editsAndActivity?: boolean;
     producedBy?: boolean;
     producedWith?: boolean;
@@ -57,6 +58,7 @@ const defaultConfig: ManifestSummaryConfig = {
   showDescriptions: true,
   sections: {
     assetsUsed: true,
+    alert: true,
     editsAndActivity: true,
     producedBy: true,
     producedWith: true,
@@ -178,6 +180,9 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                       .config=${this._config}
                     ></cai-content-summary-dm-plugin>
                   `
+                : nothing}
+              ${this._config?.sections?.contentSummary
+                ? html` <div>${this.manifestStore.alert}</div> `
                 : nothing}
               ${this._config?.sections?.producedBy
                 ? html`
