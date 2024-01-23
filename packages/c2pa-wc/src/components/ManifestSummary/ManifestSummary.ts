@@ -181,8 +181,15 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                     ></cai-content-summary-dm-plugin>
                   `
                 : nothing}
-              ${this._config?.sections?.contentSummary
-                ? html` <div>${this.manifestStore.alert}</div> `
+              ${this.manifestStore.alert
+                ? html`
+                    <div
+                      style="background-color: ${this.manifestStore.alert
+                        .type};"
+                    >
+                      ${this.manifestStore.alert.message}
+                    </div>
+                  `
                 : nothing}
               ${this._config?.sections?.producedBy
                 ? html`
