@@ -6,7 +6,7 @@
  * accordance with the terms of the Adobe license agreement accompanying
  * it.
  */
-import { Credential, SignatureInfo, Manifest as ToolkitManifest } from '@contentauth/toolkit';
+import { Credential, SignatureInfo, ClaimGeneratorInfo, Manifest as ToolkitManifest } from '@contentauth/toolkit';
 import { AssertionAccessor } from './assertions';
 import { Ingredient } from './ingredient';
 import { ManifestMap } from './manifestStore';
@@ -29,6 +29,7 @@ export interface Manifest {
      */
     claimGenerator: string;
     claimGeneratorHints: Record<string, unknown> | null;
+    claimGeneratorInfo: ClaimGeneratorInfo[];
     /**
      * Instance ID from `xmpMM:InstanceID` in XMP metadata.
      */
