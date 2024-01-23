@@ -161,6 +161,21 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
       return null;
     }
 
+    let alertColor;
+
+    if (this.manifestStore.alert) {
+      switch (this.manifestStore.alert.type) {
+        case 'warning':
+          alertColor = '#f0ad4e';
+          break;
+        case 'error':
+          alertColor = '#d9534f';
+          break;
+        default:
+          alertColor = '#5bc0de';
+      }
+    }
+
     return html`<div id="container-dm-plugin">
       <div id="content-container-dm-plugin">
         <cai-minimum-viable-provenance-dm-plugin
@@ -184,8 +199,7 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
               ${this.manifestStore.alert
                 ? html`
                     <div
-                      style="background-color: ${this.manifestStore.alert
-                        .type};"
+                      style="background-color: ${alertColor}; border-radius: 10px;"
                     >
                       ${this.manifestStore.alert.message}
                     </div>
