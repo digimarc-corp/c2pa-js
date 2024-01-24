@@ -39,6 +39,7 @@ export interface L2ManifestStore {
     error: ErrorStatus;
     validationStatus: ValidationStatus[];
     alert?: AlertType | null;
+    watermarkProvider?: string | null;
 }
 export interface L2Ingredient {
     title: string;

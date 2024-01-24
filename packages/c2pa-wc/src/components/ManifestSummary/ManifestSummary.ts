@@ -196,10 +196,10 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                     ></cai-content-summary-dm-plugin>
                   `
                 : nothing}
-              ${this.manifestStore.alert
+              ${this.manifestStore?.alert
                 ? html`
                     <div
-                      style="background-color: ${alertColor}; border-radius: 10px;"
+                      style="background-color: ${alertColor}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%;"
                     >
                       ${this.manifestStore.alert.message}
                     </div>
@@ -219,6 +219,14 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-produced-with-dm-plugin>
+                  `
+                : nothing}
+              ${this.manifestStore?.watermarkProvider
+                ? html`
+                    <cai-watermark-provider-dm-plugin
+                      .manifestStore=${this.manifestStore}
+                      .config=${this._config}
+                    ></cai-watermark-provider-dm-plugin>
                   `
                 : nothing}
               ${this._config?.sections?.editsAndActivity
