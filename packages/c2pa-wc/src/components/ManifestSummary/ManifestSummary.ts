@@ -223,10 +223,12 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                 : nothing}
               ${this.manifestStore?.watermarkProvider
                 ? html`
-                    <cai-watermark-provider-dm-plugin
-                      .manifestStore=${this.manifestStore}
-                      .config=${this._config}
-                    ></cai-watermark-provider-dm-plugin>
+                    <cai-panel-section-dm-plugin
+                      header=${this._config.stringMap['produced-by.header']}
+                      helpText=${this._config.stringMap['produced-by.helpText']}
+                    >
+                      <div>${this.manifestStore.watermarkProvider}</div>
+                    </cai-panel-section-dm-plugin>
                   `
                 : nothing}
               ${this._config?.sections?.editsAndActivity
