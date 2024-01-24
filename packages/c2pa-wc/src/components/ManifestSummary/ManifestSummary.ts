@@ -224,8 +224,8 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
               ${this.manifestStore?.watermarkProvider
                 ? html`
                     <cai-panel-section-dm-plugin
-                      header=${this._config.stringMap['produced-by.header']}
-                      helpText=${this._config.stringMap['produced-by.helpText']}
+                      header=${'Watermarked by'}
+                      helpText=${'The provider of the watermark'}
                     >
                       <div>${this.manifestStore.watermarkProvider}</div>
                     </cai-panel-section-dm-plugin>
