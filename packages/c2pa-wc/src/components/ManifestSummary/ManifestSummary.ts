@@ -166,13 +166,13 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
     if (this.manifestStore.alert) {
       switch (this.manifestStore.alert.type) {
         case 'warning':
-          alertColor = '#f0ad4e';
+          alertColor = '#ffff75';
           break;
         case 'error':
-          alertColor = '#d9534f';
+          alertColor = '#ff7c76';
           break;
         default:
-          alertColor = '#5bc0de';
+          alertColor = '#2dcdcd';
       }
     }
 
@@ -199,7 +199,7 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
               ${this.manifestStore?.alert
                 ? html`
                     <div
-                      style="background-color: ${alertColor}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%;"
+                      style="background-color: ${alertColor}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
                       ${this.manifestStore.alert.message}
                     </div>

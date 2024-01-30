@@ -62,7 +62,7 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
         #view-more-dm-plugin:hover {
           background-color: #eeeeee;
         }
-      `]}render(){var i,o,t,n,s,a,m,c,d,p,u,v,g,f;if(!this.manifestStore)return null;let h;if(this.manifestStore.alert)switch(this.manifestStore.alert.type){case"warning":h="#f0ad4e";break;case"error":h="#d9534f";break;default:h="#5bc0de"}return e`<div id="container-dm-plugin">
+      `]}render(){var i,o,t,n,s,a,m,c,d,p,u,g,v,f;if(!this.manifestStore)return null;let h;if(this.manifestStore.alert)switch(this.manifestStore.alert.type){case"warning":h="#ffff75";break;case"error":h="#ff7c76";break;default:h="#2dcdcd"}return e`<div id="container-dm-plugin">
       <div id="content-container-dm-plugin">
         <cai-minimum-viable-provenance-dm-plugin
           .manifestStore=${this.manifestStore}
@@ -80,7 +80,7 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
                   `:r}
               ${(null===(t=this.manifestStore)||void 0===t?void 0:t.alert)?e`
                     <div
-                      style="background-color: ${h}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%;"
+                      style="background-color: ${h}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
                       ${this.manifestStore.alert.message}
                     </div>
@@ -111,13 +111,13 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
                       .config=${this._config}
                     ></cai-edits-and-activity-dm-plugin>
                   `:r}
-              ${(null===(v=null===(u=this._config)||void 0===u?void 0:u.sections)||void 0===v?void 0:v.assetsUsed)?e`
+              ${(null===(g=null===(u=this._config)||void 0===u?void 0:u.sections)||void 0===g?void 0:g.assetsUsed)?e`
                     <cai-assets-used-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-assets-used-dm-plugin>
                   `:r}
-              ${(null===(f=null===(g=this._config)||void 0===g?void 0:g.sections)||void 0===f?void 0:f.socialMedia)?e`
+              ${(null===(f=null===(v=this._config)||void 0===v?void 0:v.sections)||void 0===f?void 0:f.socialMedia)?e`
                     <cai-social-media-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
