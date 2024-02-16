@@ -166,7 +166,7 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
     if (this.manifestStore.alert) {
       switch (this.manifestStore.alert.type) {
         case 'warning':
-          alertColor = '#ffff75';
+          alertColor = '#f4c571';
           break;
         case 'error':
           alertColor = '#ff7c76';
