@@ -62,7 +62,7 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
         #view-more-dm-plugin:hover {
           background-color: #eeeeee;
         }
-      `]}render(){var i,o,t,n,s,a,m,c,d,p,u,g,v,f;if(!this.manifestStore)return null;let h;if(this.manifestStore.alert)switch(this.manifestStore.alert.type){case"warning":h="#ffff75";break;case"error":h="#ff7c76";break;default:h="#2dcdcd"}return e`<div id="container-dm-plugin">
+      `]}render(){var i,o,t,n,s,a,m,c,d,p,u,g,v,f;if(!this.manifestStore)return null;let h;if(this.manifestStore.alert)switch(this.manifestStore.alert.type){case"warning":h="#f4c571";break;case"error":h="#ff7c76";break;default:h="#2dcdcd"}return e`<div id="container-dm-plugin">
       <div id="content-container-dm-plugin">
         <cai-minimum-viable-provenance-dm-plugin
           .manifestStore=${this.manifestStore}
