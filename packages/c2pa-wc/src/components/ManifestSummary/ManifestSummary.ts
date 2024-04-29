@@ -199,9 +199,17 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
               ${this.manifestStore?.alert
                 ? html`
                     <div
-                      style="background-color: ${alertColor}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
+                      style="background-color: ${alertColor}; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
-                      ${this.manifestStore.alert.message}
+                      ${this.manifestStore.alert.message} 
+                      ${this.manifestStore?.alert.dataTrail
+                        ? html`
+                            <br/>
+                            <div>
+                              <a href="${this.manifestStore.alert.dataTrail}" target="_blank"> Audit Trail </a>
+                            </div>
+                          `
+                        : nothing}
                     </div>
                   `
                 : nothing}
