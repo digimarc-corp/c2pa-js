@@ -83,10 +83,10 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
                       style="background-color: ${b}; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
                       ${this.manifestStore.alert.message} 
-                      ${(null===(n=this.manifestStore)||void 0===n?void 0:n.alert.dataTrail)?e`
+                      ${(null===(n=this.manifestStore)||void 0===n?void 0:n.alert.auditTrail)?e`
                             <br/>
                             <div>
-                              <a href="${this.manifestStore.alert.dataTrail}" target="_blank"> Audit Trail </a>
+                              <a href="${this.manifestStore.alert.auditTrail}" target="_blank"> Audit Trail </a>
                             </div>
                           `:r}
                     </div>
