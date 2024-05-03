@@ -196,23 +196,24 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                     ></cai-content-summary-dm-plugin>
                   `
                 : nothing}
-              ${this.manifestStore?.alert
+              
+              ${this.manifestStore?.alert?.message
                 ? html`
                     <div
                       style="background-color: ${alertColor}; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
                       ${this.manifestStore.alert.message} 
-                      ${this.manifestStore?.alert.auditTrail
-                        ? html`
-                            <br/>
-                            <div>
-                              <a href="${this.manifestStore.alert.auditTrail}" target="_blank"> Audit Trail </a>
-                            </div>
-                          `
-                        : nothing}
+                      
                     </div>
                   `
                 : nothing}
+                ${this.manifestStore?.alert?.auditTrail
+                  ? html`
+                      <div>
+                        <a href="${this.manifestStore.alert.auditTrail}" target="_blank"> Audit Trail </a>
+                      </div>
+                    `
+                  : nothing}
               ${this._config?.sections?.producedBy
                 ? html`
                     <cai-produced-by-dm-plugin

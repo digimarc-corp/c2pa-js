@@ -1,4 +1,4 @@
-import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as r,s as n}from"../../e4c0417e.js";import{n as s}from"../../06170432.js";import{defaultStyles as a}from"../../styles.js";import{hasChanged as m,defaultDateFormatter as c}from"../../utils.js";import{Configurable as d}from"../../mixins/configurable.js";import"../ContentSummary/ContentSummary.js";import"../AssetsUsed/AssetsUsed.js";import"../ProducedBy/ProducedBy.js";import"../ProducedWith/ProducedWith.js";import"../SocialMedia/SocialMedia.js";import"../EditsAndActivity/EditsAndActivity.js";import"../MinimumViableProvenance/MinimumViableProvenance.js";import"../../12d8f3c3.js";import"../../mixins/configurablePanelSection.js";import"../../mixins/panelSection.js";import"../../icons/monochrome/generic-info.js";import"../Icon/Icon.js";import"../../icons/color/logos/adobe-stock.js";import"../../icons/color/logos/adobe.js";import"../../icons/color/logos/behance.js";import"../../icons/color/logos/cai.js";import"../../icons/color/logos/facebook.js";import"../../icons/color/logos/instagram.js";import"../../icons/color/logos/lightroom.js";import"../../icons/color/logos/photoshop.js";import"../../icons/color/logos/truepic.js";import"../../icons/color/logos/twitter.js";import"../PanelSection/PanelSection.js";import"../Tooltip/Tooltip.js";import"../Popover/Popover.js";import"../../icons/monochrome/help.js";import"../../badge.js";import"../Thumbnail/Thumbnail.js";import"../../icons/monochrome/broken-image.js";import"../../icons/color/info.js";import"../../icons/color/alert.js";import"../../icons/color/missing.js";var l;const p={stringMap:{"manifest-summary.viewMore":"View more","manifest-summary.error":"Content Credentials unavailable or invalid"},dateFormatter:c,showDescriptions:!0,sections:{assetsUsed:!0,alert:!0,editsAndActivity:!0,producedBy:!0,producedWith:!0,socialMedia:!0,contentSummary:!0}};let u=l=class extends(d(n,p)){constructor(){super(...arguments),this.viewMoreUrl=""}static get styles(){return[a,t`
+import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as r,s as n}from"../../e4c0417e.js";import{n as s}from"../../06170432.js";import{defaultStyles as a}from"../../styles.js";import{hasChanged as m,defaultDateFormatter as d}from"../../utils.js";import{Configurable as c}from"../../mixins/configurable.js";import"../ContentSummary/ContentSummary.js";import"../AssetsUsed/AssetsUsed.js";import"../ProducedBy/ProducedBy.js";import"../ProducedWith/ProducedWith.js";import"../SocialMedia/SocialMedia.js";import"../EditsAndActivity/EditsAndActivity.js";import"../MinimumViableProvenance/MinimumViableProvenance.js";import"../../12d8f3c3.js";import"../../mixins/configurablePanelSection.js";import"../../mixins/panelSection.js";import"../../icons/monochrome/generic-info.js";import"../Icon/Icon.js";import"../../icons/color/logos/adobe-stock.js";import"../../icons/color/logos/adobe.js";import"../../icons/color/logos/behance.js";import"../../icons/color/logos/cai.js";import"../../icons/color/logos/facebook.js";import"../../icons/color/logos/instagram.js";import"../../icons/color/logos/lightroom.js";import"../../icons/color/logos/photoshop.js";import"../../icons/color/logos/truepic.js";import"../../icons/color/logos/twitter.js";import"../PanelSection/PanelSection.js";import"../Tooltip/Tooltip.js";import"../Popover/Popover.js";import"../../icons/monochrome/help.js";import"../../badge.js";import"../Thumbnail/Thumbnail.js";import"../../icons/monochrome/broken-image.js";import"../../icons/color/info.js";import"../../icons/color/alert.js";import"../../icons/color/missing.js";var l;const p={stringMap:{"manifest-summary.viewMore":"View more","manifest-summary.error":"Content Credentials unavailable or invalid"},dateFormatter:d,showDescriptions:!0,sections:{assetsUsed:!0,alert:!0,editsAndActivity:!0,producedBy:!0,producedWith:!0,socialMedia:!0,contentSummary:!0}};let u=l=class extends(c(n,p)){constructor(){super(...arguments),this.viewMoreUrl=""}static get styles(){return[a,t`
         #container-dm-plugin {
           width: var(--cai-manifest-summary-width, 320px);
         }
@@ -62,7 +62,7 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
         #view-more-dm-plugin:hover {
           background-color: #eeeeee;
         }
-      `]}render(){var i,o,t,n,s,a,m,c,d,p,u,v,g,f,h;if(!this.manifestStore)return null;let b;if(this.manifestStore.alert)switch(this.manifestStore.alert.type){case"warning":b="#f4c571";break;case"error":b="#ff7c76";break;default:b="#2dcdcd"}return e`<div id="container-dm-plugin">
+      `]}render(){var i,o,t,n,s,a,m,d,c,p,u,v,g,f,h,y,b;if(!this.manifestStore)return null;let j;if(this.manifestStore.alert)switch(this.manifestStore.alert.type){case"warning":j="#f4c571";break;case"error":j="#ff7c76";break;default:j="#2dcdcd"}return e`<div id="container-dm-plugin">
       <div id="content-container-dm-plugin">
         <cai-minimum-viable-provenance-dm-plugin
           .manifestStore=${this.manifestStore}
@@ -78,32 +78,33 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
                       .config=${this._config}
                     ></cai-content-summary-dm-plugin>
                   `:r}
-              ${(null===(t=this.manifestStore)||void 0===t?void 0:t.alert)?e`
+              
+              ${(null===(n=null===(t=this.manifestStore)||void 0===t?void 0:t.alert)||void 0===n?void 0:n.message)?e`
                     <div
-                      style="background-color: ${b}; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
+                      style="background-color: ${j}; border-radius: 10px; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
                       ${this.manifestStore.alert.message} 
-                      ${(null===(n=this.manifestStore)||void 0===n?void 0:n.alert.auditTrail)?e`
-                            <br/>
-                            <div>
-                              <a href="${this.manifestStore.alert.auditTrail}" target="_blank"> Audit Trail </a>
-                            </div>
-                          `:r}
+                      
                     </div>
                   `:r}
-              ${(null===(a=null===(s=this._config)||void 0===s?void 0:s.sections)||void 0===a?void 0:a.producedBy)?e`
+                ${(null===(a=null===(s=this.manifestStore)||void 0===s?void 0:s.alert)||void 0===a?void 0:a.auditTrail)?e`
+                      <div>
+                        <a href="${this.manifestStore.alert.auditTrail}" target="_blank"> Audit Trail </a>
+                      </div>
+                    `:r}
+              ${(null===(d=null===(m=this._config)||void 0===m?void 0:m.sections)||void 0===d?void 0:d.producedBy)?e`
                     <cai-produced-by-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-produced-by-dm-plugin>
                   `:r}
-              ${(null===(c=null===(m=this._config)||void 0===m?void 0:m.sections)||void 0===c?void 0:c.producedWith)?e`
+              ${(null===(p=null===(c=this._config)||void 0===c?void 0:c.sections)||void 0===p?void 0:p.producedWith)?e`
                     <cai-produced-with-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-produced-with-dm-plugin>
                   `:r}
-              ${(null===(d=this.manifestStore)||void 0===d?void 0:d.watermarkProvider)?e`
+              ${(null===(u=this.manifestStore)||void 0===u?void 0:u.watermarkProvider)?e`
                     <cai-panel-section-dm-plugin
                       header=${"Watermarked by"}
                       helpText=${"The provider of the watermark"}
@@ -111,19 +112,19 @@ import{__decorate as i,e as o}from"../../b803f408.js";import{r as t,$ as e,w as 
                       <div>${this.manifestStore.watermarkProvider}</div>
                     </cai-panel-section-dm-plugin>
                   `:r}
-              ${(null===(u=null===(p=this._config)||void 0===p?void 0:p.sections)||void 0===u?void 0:u.editsAndActivity)?e`
+              ${(null===(g=null===(v=this._config)||void 0===v?void 0:v.sections)||void 0===g?void 0:g.editsAndActivity)?e`
                     <cai-edits-and-activity-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-edits-and-activity-dm-plugin>
                   `:r}
-              ${(null===(g=null===(v=this._config)||void 0===v?void 0:v.sections)||void 0===g?void 0:g.assetsUsed)?e`
+              ${(null===(h=null===(f=this._config)||void 0===f?void 0:f.sections)||void 0===h?void 0:h.assetsUsed)?e`
                     <cai-assets-used-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-assets-used-dm-plugin>
                   `:r}
-              ${(null===(h=null===(f=this._config)||void 0===f?void 0:f.sections)||void 0===h?void 0:h.socialMedia)?e`
+              ${(null===(b=null===(y=this._config)||void 0===y?void 0:y.sections)||void 0===b?void 0:b.socialMedia)?e`
                     <cai-social-media-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
