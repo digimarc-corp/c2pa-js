@@ -10,6 +10,27 @@ import { DownloaderOptions } from './lib/downloader';
 import { WorkerPoolConfig } from './lib/pool/workerPool';
 import { ManifestStore } from './manifestStore';
 import { C2paSourceType, Source } from './source';
+export interface ToolkitTrustSettings {
+    /**
+     * A list of allowed trust anchors
+     */
+    trustAnchors?: string;
+    trustConfig?: string;
+    /**
+     * A list of allowed end-entity certificates/hashes for trust checking
+     */
+    allowedList?: string;
+}
+export interface ToolkitVerifySettings {
+    verifyAfterSign?: boolean;
+    verifyTrust?: boolean;
+    ocspFetch?: boolean;
+    remoteManifestFetch?: boolean;
+}
+export interface ToolkitSettings {
+    trust?: ToolkitTrustSettings;
+    verify?: ToolkitVerifySettings;
+}
 export interface C2paConfig {
     /**
      * The URL of the WebAssembly binary or a compiled WebAssembly module
@@ -32,6 +53,10 @@ export interface C2paConfig {
      * By default, the SDK will fetch cloud-stored (remote) manifests. Set this to false to disable this behavior.
      */
     fetchRemoteManifests?: boolean;
+    settings?: ToolkitSettings;
+}
+export interface C2paReadOptions {
+    settings?: ToolkitSettings;
 }
 /**
  * Main interface for reading c2pa data contained within an asset.
@@ -41,12 +66,12 @@ export interface C2pa {
      * Processes image data from a `Blob` as input
      * @param blob - The binary data of the image
      */
-    read(blob: Blob): Promise<C2paReadResult>;
+    read(blob: Blob, options?: C2paReadOptions): Promise<C2paReadResult>;
     /**
      * Processes image data from a `File` as input. Useful for file uploads/drag-and-drop.
      * @param file - The binary data of the image
      */
-    read(file: File): Promise<C2paReadResult>;
+    read(file: File, options?: C2paReadOptions): Promise<C2paReadResult>;
     /**
      * Processes image data from a URL
      *
@@ -58,7 +83,7 @@ export interface C2pa {
      *
      * @param url - The URL of the image to process
      */
-    read(url: string): Promise<C2paReadResult>;
+    read(url: string, options?: C2paReadOptions): Promise<C2paReadResult>;
     /**
      * Processes an image from an HTML image element (`<img />`).
      *
@@ -67,7 +92,7 @@ export interface C2pa {
      *
      * @param element - DOM element of the image to process
      */
-    read(element: HTMLImageElement): Promise<C2paReadResult>;
+    read(element: HTMLImageElement, options?: C2paReadOptions): Promise<C2paReadResult>;
     /**
      * Process an image given a valid input. Supported types:
      * - Blob
@@ -77,13 +102,13 @@ export interface C2pa {
      *
      * @param input - Image to process
      */
-    read(input: C2paSourceType): Promise<C2paReadResult>;
+    read(input: C2paSourceType, options?: C2paReadOptions): Promise<C2paReadResult>;
     /**
      * Convenience function to process multiple images at once
      *
      * @param inputs - Array of inputs to pass to `processImage`
      */
-    readAll(inputs: C2paSourceType[]): Promise<C2paReadResult[]>;
+    readAll(inputs: C2paSourceType[], options?: C2paReadOptions): Promise<C2paReadResult[]>;
     /**
      * Disposer function to clean up the underlying worker pool and any other disposable resources
      */

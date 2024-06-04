@@ -1,4 +1,4 @@
-import{__decorate as o,e as i}from"../../b803f408.js";import{s as t,r,$ as n}from"../../e4c0417e.js";import{n as s}from"../../06170432.js";import{t as e}from"../../12d8f3c3.js";import{o as p}from"../Popover/Popover.js";import"../../icons/monochrome/help.js";import{defaultStyles as c}from"../../styles.js";import"../Icon/Icon.js";import"../../icons/color/logos/adobe-stock.js";import"../../icons/color/logos/adobe.js";import"../../icons/color/logos/behance.js";import"../../icons/color/logos/cai.js";import"../../icons/color/logos/facebook.js";import"../../icons/color/logos/instagram.js";import"../../icons/color/logos/lightroom.js";import"../../icons/color/logos/photoshop.js";import"../../icons/color/logos/truepic.js";import"../../icons/color/logos/twitter.js";let a=class extends t{constructor(){super(...arguments),this._isShown=!1,this.animationDuration=200,this.autoPlacement={padding:10},this.arrow=!0}static get styles(){return[c,r`
+import{__decorate as o,e as i}from"../../b803f408.js";import{s as t,r,$ as n}from"../../e4c0417e.js";import{n as s}from"../../06170432.js";import{t as e}from"../../12d8f3c3.js";import{o as c}from"../../5aacf6e0.js";import"../../icons/monochrome/help.js";import{defaultStyles as p}from"../../styles.js";import"../Icon/Icon.js";import"../../icons/color/logos/adobe-stock.js";import"../../icons/color/logos/adobe.js";import"../../icons/color/logos/behance.js";import"../../icons/color/logos/cai.js";import"../../icons/color/logos/ethereum.js";import"../../icons/color/logos/facebook.js";import"../../icons/color/logos/instagram.js";import"../../icons/color/logos/lightroom.js";import"../../icons/color/logos/linkedin.js";import"../../icons/color/logos/photoshop.js";import"../../icons/color/logos/solana.js";import"../../icons/color/logos/truepic.js";import"../../icons/color/logos/twitter.js";let l=class extends t{constructor(){super(...arguments),this._isShown=!1,this.animationDuration=200,this.autoPlacement={padding:10},this.arrow=!0}static get styles(){return[p,r`
         #trigger-dm-plugin {
           display: flex;
           --cai-icon-width: var(--cai-popover-icon-width, 16px);
@@ -36,8 +36,8 @@ import{__decorate as o,e as i}from"../../b803f408.js";import{s as t,r,$ as n}fro
             <cai-icon-help-dm-plugin></cai-icon-help-dm-plugin>
           </slot>
         </div>
-        <div class=${p(o)} slot="content">
+        <div class=${c(o)} slot="content">
           <slot name="content"></slot>
         </div>
       </cai-popover-dm-plugin>
-    `}};o([e()],a.prototype,"_isShown",void 0),o([i({type:Number})],a.prototype,"animationDuration",void 0),o([i({type:Object})],a.prototype,"autoPlacement",void 0),o([i({type:Boolean})],a.prototype,"arrow",void 0),a=o([s("cai-tooltip-dm-plugin")],a);
+    `}};o([e()],l.prototype,"_isShown",void 0),o([i({type:Number})],l.prototype,"animationDuration",void 0),o([i({type:Object})],l.prototype,"autoPlacement",void 0),o([i({type:Boolean})],l.prototype,"arrow",void 0),l=o([s("cai-tooltip-dm-plugin")],l);export{l as Tooltip};

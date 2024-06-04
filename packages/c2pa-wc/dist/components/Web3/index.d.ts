@@ -6,4 +6,5 @@
  * accordance with the terms of the Adobe license agreement accompanying
  * it.
  */
-export * from './AssetsUsed';
+export * from './Web3';
+export * from './Web3Pill';

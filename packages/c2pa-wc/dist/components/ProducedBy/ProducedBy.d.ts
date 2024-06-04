@@ -18,9 +18,10 @@ declare global {
         }
     }
 }
-declare const ProducedBy_base: (new (...args: any[]) => import("../../mixins/configurable").ConfigurableInterface<Record<string, any>>) & (new (...args: any[]) => import("../../mixins/panelSection").PanelSectionInterface<string | undefined>) & typeof LitElement;
+declare const ProducedBy_base: (new (...args: any[]) => import("../../mixins/localizable").LocalizableInterface) & typeof LitElement;
 export declare class ProducedBy extends ProducedBy_base {
     static get styles(): import("lit").CSSResult[];
-    render(): import("lit-html").TemplateResult<2 | 1>;
+    data: string | undefined;
+    render(): import("lit-html").TemplateResult<1>;
 }
 export {};

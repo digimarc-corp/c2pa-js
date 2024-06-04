@@ -1,4 +1,4 @@
-import{__decorate as o}from"../../b803f408.js";import{s as i,r as n,$ as t}from"../../e4c0417e.js";import{n as s}from"../../06170432.js";import{ConfigurablePanelSection as e}from"../../mixins/configurablePanelSection.js";import{defaultStyles as r,baseSectionStyles as c}from"../../styles.js";import"../../icons/monochrome/generic-info.js";import"../Icon/Icon.js";import"../PanelSection/PanelSection.js";import"../../mixins/configurable.js";import"../../12d8f3c3.js";import"../../utils.js";import"../../mixins/panelSection.js";import"../../icons/color/logos/adobe-stock.js";import"../../icons/color/logos/adobe.js";import"../../icons/color/logos/behance.js";import"../../icons/color/logos/cai.js";import"../../icons/color/logos/facebook.js";import"../../icons/color/logos/instagram.js";import"../../icons/color/logos/lightroom.js";import"../../icons/color/logos/photoshop.js";import"../../icons/color/logos/truepic.js";import"../../icons/color/logos/twitter.js";import"../Tooltip/Tooltip.js";import"../Popover/Popover.js";import"../../icons/monochrome/help.js";const m={stringMap:{"content-summary.header":"Content summary","content-summary.content.aiGenerated":"This content was generated with an AI tool."}};let l=class extends(e(i,{dataSelector:o=>null==o?void 0:o.generativeInfo,config:m})){static get styles(){return[r,c,n`
+import{__decorate as o,e as s}from"../../b803f408.js";import{r as i,$ as t,s as n}from"../../e4c0417e.js";import{n as e}from"../../06170432.js";import"../../icons/monochrome/generic-info.js";import{defaultStyles as c,baseSectionStyles as r}from"../../styles.js";import{hasChanged as l}from"../../3e371bb9.js";import{Localizable as m}from"../../mixins/localizable.js";import"../Icon/Icon.js";import"../PanelSection/PanelSection.js";import"../../12d8f3c3.js";import"../../i18n/index.js";import"../../icons/color/logos/adobe-stock.js";import"../../icons/color/logos/adobe.js";import"../../icons/color/logos/behance.js";import"../../icons/color/logos/cai.js";import"../../icons/color/logos/ethereum.js";import"../../icons/color/logos/facebook.js";import"../../icons/color/logos/instagram.js";import"../../icons/color/logos/lightroom.js";import"../../icons/color/logos/linkedin.js";import"../../icons/color/logos/photoshop.js";import"../../icons/color/logos/solana.js";import"../../icons/color/logos/truepic.js";import"../../icons/color/logos/twitter.js";import"../Tooltip/Tooltip.js";import"../../5aacf6e0.js";import"../../icons/monochrome/help.js";let p=class extends(m(n)){static get styles(){return[c,r,i`
         .section-process-content-dm-plugin {
           display: flex;
           align-items: center;
@@ -8,14 +8,18 @@ import{__decorate as o}from"../../b803f408.js";import{s as i,r as n,$ as t}from"
           align-items: flex-start;
           gap: var(--cai-icon-spacing, 8px);
         }
-      `]}render(){return this.renderSection(t`<cai-panel-section-dm-plugin
-      header=${this._config.stringMap["content-summary.header"]}
-      helpText=${this._config.stringMap["content-summary.helpText"]}
+      `]}render(){return t`<cai-panel-section-dm-plugin
+      helpText=${this.strings["content-summary.helpText"]}
     >
-      <div class="section-icon-content-dm-plugin">
-        <cai-icon-generic-info-dm-plugin></cai-icon-generic-info-dm-plugin>
-        <span>
-          ${this._config.stringMap["content-summary.content.aiGenerated"]}
-        </span>
+      <div class="section-icon-content-dm-plugin" slot="content">
+        ${"compositeWithTrainedAlgorithmicMedia"===this.data?t`
+              <span>
+                ${this.strings["content-summary.content.composite"]}
+              </span>
+            `:t`
+              <span>
+                ${this.strings["content-summary.content.aiGenerated"]}
+              </span>
+            `}
       </div>
-    </cai-panel-section-dm-plugin>`)}};l=o([s("cai-content-summary-dm-plugin")],l);
+    </cai-panel-section-dm-plugin>`}};o([s({type:Object,hasChanged:l})],p.prototype,"data",void 0),p=o([e("cai-content-summary-dm-plugin")],p);export{p as ContentSummary};

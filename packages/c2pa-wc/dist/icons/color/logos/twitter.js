@@ -1,4 +1,4 @@
-import{s as i,r as e,$ as t}from"../../../e4c0417e.js";customElements.define("cai-icon-twitter-dm-plugin",class extends i{static get styles(){return e`
+import{s as i,r as t,$ as e}from"../../../e4c0417e.js";class l extends i{static get styles(){return t`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -13,20 +13,23 @@ import{s as i,r as e,$ as t}from"../../../e4c0417e.js";customElements.define("ca
 
       path {
       }
-    `}render(){return t`<div aria-hidden="true">
+    `}render(){return e`<div aria-hidden="true">
       <svg
+        fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
+        viewBox="0 0 16 16"
         preserveAspectRatio="xMidYMid meet"
         part="svg"
       >
-        <g fill="none" fill-rule="evenodd">
-          <path d="M0 0h24v24H0z" />
+        <g clip-path="url(#a)">
+          <rect width="16" height="16" rx="2" fill="#000" />
           <path
-            d="M23.206 5.185c-.835.37-1.732.62-2.675.733a4.67 4.67 0 0 0 2.048-2.578 9.3 9.3 0 0 1-2.958 1.13 4.66 4.66 0 0 0-7.938 4.25 13.229 13.229 0 0 1-9.602-4.868c-.4.69-.63 1.49-.63 2.342a4.66 4.66 0 0 0 2.072 3.878 4.647 4.647 0 0 1-2.11-.583v.06a4.66 4.66 0 0 0 3.737 4.568 4.692 4.692 0 0 1-2.104.08 4.661 4.661 0 0 0 4.352 3.234 9.348 9.348 0 0 1-5.786 1.995A9.5 9.5 0 0 1 .5 19.361a13.175 13.175 0 0 0 7.14 2.093c8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602a9.47 9.47 0 0 0 2.323-2.41l.002-.003Z"
-            fill="#1DA1F1"
-            fill-rule="nonzero"
+            d="M9.142 7.081 13.609 2H12.55L8.671 6.412 5.573 2H2l4.685 6.672L2 14h1.059l4.096-4.66L10.427 14H14L9.141 7.081Zm-1.45 1.65-.475-.665L3.44 2.78h1.626l3.048 4.266.475.664 3.962 5.546h-1.626L7.692 8.73Z"
+            fill="#fff"
           />
         </g>
+        <defs>
+          <clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z" /></clipPath>
+        </defs>
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-twitter-dm-plugin",l);export{l as default};

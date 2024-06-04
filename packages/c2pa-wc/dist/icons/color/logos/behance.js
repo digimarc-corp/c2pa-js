@@ -1,4 +1,4 @@
-import{s as i,r as e,$ as c}from"../../../e4c0417e.js";customElements.define("cai-icon-behance-dm-plugin",class extends i{static get styles(){return e`
+import{s as e,r as i,$ as t}from"../../../e4c0417e.js";class c extends e{static get styles(){return i`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -13,7 +13,7 @@ import{s as i,r as e,$ as c}from"../../../e4c0417e.js";customElements.define("ca
 
       path {
       }
-    `}render(){return c`<div aria-hidden="true">
+    `}render(){return t`<div aria-hidden="true">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -31,4 +31,4 @@ import{s as i,r as e,$ as c}from"../../../e4c0417e.js";customElements.define("ca
           />
         </g>
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-behance-dm-plugin",c);export{c as default};

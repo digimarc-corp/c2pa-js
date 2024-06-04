@@ -6,7 +6,6 @@
  * accordance with the terms of the Adobe license agreement accompanying
  * it.
  */
-import { L2Ingredient, L2ManifestStore } from 'c2pa';
+import { L2ManifestStore } from 'c2pa';
 import { Badge } from './components/Thumbnail';
 export declare function getBadgeFromManifestStore(manifestStore?: L2ManifestStore | null): Badge;
-export declare function getBadgeFromIngredient(ingredient: L2Ingredient): Badge;

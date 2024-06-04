@@ -1,4 +1,4 @@
-import{s as i,r as e,$ as l}from"../../../e4c0417e.js";customElements.define("cai-icon-lightroom-dm-plugin",class extends i{static get styles(){return e`
+import{s as e,r as i,$ as l}from"../../../e4c0417e.js";class t extends e{static get styles(){return i`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -39,4 +39,4 @@ import{s as i,r as e,$ as l}from"../../../e4c0417e.js";customElements.define("ca
           <clipPath id="a"><path fill="#fff" d="M0 0h16v16H0z" /></clipPath>
         </defs>
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-lightroom-dm-plugin",t);export{t as default};

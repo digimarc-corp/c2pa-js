@@ -1,4 +1,4 @@
-import{s as a,r as i,$ as e}from"../../../e4c0417e.js";customElements.define("cai-icon-adobe-stock-dm-plugin",class extends a{static get styles(){return i`
+import{s as a,r as i,$ as e}from"../../../e4c0417e.js";class t extends a{static get styles(){return i`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -28,4 +28,4 @@ import{s as a,r as i,$ as e}from"../../../e4c0417e.js";customElements.define("ca
           fill="#fff"
         />
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-adobe-stock-dm-plugin",t);export{t as default};

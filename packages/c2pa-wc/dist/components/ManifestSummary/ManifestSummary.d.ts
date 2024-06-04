@@ -6,17 +6,16 @@
  * accordance with the terms of the Adobe license agreement accompanying
  * it.
  */
-import { LitElement } from 'lit';
 import { L2ManifestStore } from 'c2pa';
-import type { EditsAndActivityConfig } from '../EditsAndActivity';
+import { LitElement } from 'lit';
 import type { MinimumViableProvenanceConfig } from '../MinimumViableProvenance';
+import '../AIToolUsed';
 import '../ContentSummary';
-import '../AssetsUsed';
+import '../MinimumViableProvenance';
 import '../ProducedBy';
 import '../ProducedWith';
 import '../SocialMedia';
-import '../EditsAndActivity';
-import '../MinimumViableProvenance';
+import '../Web3';
 declare global {
     interface HTMLElementTagNameMap {
         'cai-manifest-summary-dm-plugin': ManifestSummary;
@@ -27,19 +26,7 @@ declare global {
         }
     }
 }
-export interface ManifestSummaryConfig extends Pick<MinimumViableProvenanceConfig, 'dateFormatter'>, Pick<EditsAndActivityConfig, 'showDescriptions'> {
-    stringMap: Record<string, string>;
-    sections?: {
-        assetsUsed?: boolean;
-        alert?: boolean;
-        editsAndActivity?: boolean;
-        producedBy?: boolean;
-        producedWith?: boolean;
-        socialMedia?: boolean;
-        contentSummary?: boolean;
-    };
-}
-declare const ManifestSummary_base: (new (...args: any[]) => import("../../mixins/configurable").ConfigurableInterface<ManifestSummaryConfig>) & typeof LitElement;
+declare const ManifestSummary_base: (new (...args: any[]) => import("../../mixins/configurable").ConfigurableInterface<MinimumViableProvenanceConfig>) & (new (...args: any[]) => import("../../mixins/localizable").LocalizableInterface) & typeof LitElement;
 export declare class ManifestSummary extends ManifestSummary_base {
     static readonly cssParts: {
         viewMore: string;
@@ -47,6 +34,10 @@ export declare class ManifestSummary extends ManifestSummary_base {
     static get styles(): import("lit").CSSResult[];
     manifestStore: L2ManifestStore | undefined;
     viewMoreUrl: string;
+    private _postRef;
+    private _isPostEmpty;
+    private _checkPostEmpty;
+    firstUpdated(): void;
     render(): import("lit-html").TemplateResult<1> | null;
 }
 export {};

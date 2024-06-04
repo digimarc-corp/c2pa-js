@@ -6,9 +6,10 @@
  * accordance with the terms of the Adobe license agreement accompanying
  * it.
  */
+import { L2SocialAccount } from 'c2pa';
 import { LitElement } from 'lit';
-import '../PanelSection';
 import '../Icon';
+import '../PanelSection';
 declare global {
     interface HTMLElementTagNameMap {
         'cai-social-media-dm-plugin': SocialMedia;
@@ -19,12 +20,10 @@ declare global {
         }
     }
 }
-export interface SocialMediaConfig {
-    stringMap: Record<string, string>;
-}
-declare const SocialMedia_base: (new (...args: any[]) => import("../../mixins/configurable").ConfigurableInterface<Record<string, any>>) & (new (...args: any[]) => import("../../mixins/panelSection").PanelSectionInterface<unknown>) & typeof LitElement;
+declare const SocialMedia_base: (new (...args: any[]) => import("../../mixins/localizable").LocalizableInterface) & typeof LitElement;
 export declare class SocialMedia extends SocialMedia_base {
     static get styles(): import("lit").CSSResult[];
-    render(): import("lit-html").TemplateResult<2 | 1>;
+    data: L2SocialAccount[] | undefined;
+    render(): import("lit-html").TemplateResult<1>;
 }
 export {};

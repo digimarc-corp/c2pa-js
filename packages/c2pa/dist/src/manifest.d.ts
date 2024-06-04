@@ -6,11 +6,14 @@
  * accordance with the terms of the Adobe license agreement accompanying
  * it.
  */
-import { Credential, SignatureInfo, ClaimGeneratorInfo, Manifest as ToolkitManifest } from '@contentauth/toolkit';
+import { ClaimGeneratorInfo, Credential, SignatureInfo, Manifest as ToolkitManifest } from '@contentauth/toolkit';
 import { AssertionAccessor } from './assertions';
 import { Ingredient } from './ingredient';
 import { ManifestMap } from './manifestStore';
 import { Thumbnail } from './thumbnail';
+declare type ResolvedClaimGeneratorInfo = Omit<ClaimGeneratorInfo, 'icon'> & {
+    icon: Thumbnail | null;
+};
 export interface Manifest {
     /**
      *  Human-readable title, generally source filename
@@ -29,7 +32,7 @@ export interface Manifest {
      */
     claimGenerator: string;
     claimGeneratorHints: Record<string, unknown> | null;
-    claimGeneratorInfo: ClaimGeneratorInfo[];
+    claimGeneratorInfo: ResolvedClaimGeneratorInfo[];
     /**
      * Instance ID from `xmpMM:InstanceID` in XMP metadata.
      */
@@ -70,4 +73,5 @@ export interface Manifest {
  * @param manifests A map of previously-created manifest objects to be provided to ingredients. Must contain any manifest referenced by this manifest's ingredients.
  */
 export declare function createManifest(manifestData: ToolkitManifest, manifests: ManifestMap): Manifest;
+export {};
 //# sourceMappingURL=manifest.d.ts.map
