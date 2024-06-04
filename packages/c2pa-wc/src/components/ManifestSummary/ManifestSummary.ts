@@ -191,7 +191,23 @@ export class ManifestSummary extends Configurable(
         ? selectGenerativeSoftwareAgents(this.manifestStore?.generativeInfo)
         : null,
       web3: this.manifestStore?.web3,
+      alert: this.manifestStore?.alert,
     };
+
+    let alertColor;
+
+    if (dataSelectors.alert) {
+      switch (dataSelectors.alert.type) {
+        case 'warning':
+          alertColor = '#f4c571';
+          break;
+        case 'error':
+          alertColor = '#ff7c76';
+          break;
+        default:
+          alertColor = '#2dcdcd';
+      }
+    }
 
     return html`<div id="container-dm-plugin">
       <cai-minimum-viable-provenance-dm-plugin
@@ -210,6 +226,15 @@ export class ManifestSummary extends Configurable(
                       .config=${this._config}
                       locale=${this.locale}
                     ></cai-content-summary-dm-plugin>
+                  `
+                : nothing}
+              ${dataSelectors.alert
+                ? html`
+                    <div
+                      style="background-color: ${alertColor}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
+                    >
+                      ${dataSelectors.alert.message}
+                    </div>
                   `
                 : nothing}
               ${dataSelectors.producedBy
