@@ -13,7 +13,7 @@
     "date-fns": "^2.24.0"
   },
   "dependencies": {
-    "c2pa": "workspace:*",
+    "c2pa": "0.17.6",
     "c2pa-wc": "workspace:*",
     "fast-glob": "~3.2.11"
   }
