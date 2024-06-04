@@ -17,12 +17,12 @@ const HIDE_DELAY = 800;
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-web3-pill': Web3Pill;
+    'cai-web3-pill-dm-plugin': Web3Pill;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-web3-pill': any;
+      'cai-web3-pill-dm-plugin': any;
     }
   }
 }
@@ -31,7 +31,7 @@ function truncateAddress(address: string) {
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
 }
 
-@customElement('cai-web3-pill')
+@customElement('cai-web3-pill-dm-plugin')
 export class Web3Pill extends Localizable(LitElement) {
   @property({ type: String })
   key = '';

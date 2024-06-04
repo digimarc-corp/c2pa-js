@@ -19,17 +19,17 @@ import '../PanelSection';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-ai-tool': AIToolUsed;
+    'cai-ai-tool-dm-plugin': AIToolUsed;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-ai-tool': any;
+      'cai-ai-tool-dm-plugin': any;
     }
   }
 }
 
-@customElement('cai-ai-tool')
+@customElement('cai-ai-tool-dm-plugin')
 export class AIToolUsed extends Localizable(LitElement) {
   static get styles() {
     return [defaultStyles, baseSectionStyles];
@@ -42,11 +42,11 @@ export class AIToolUsed extends Localizable(LitElement) {
   data: string[] | undefined;
 
   render() {
-    return html` <cai-panel-section
+    return html` <cai-panel-section-dm-plugin
       helpText=${this.strings['produced-by.helpText']}
     >
       <div slot="header">${this.strings['ai-tool-used.header']}</div>
       <div slot="content">${this.data}</div>
-    </cai-panel-section>`;
+    </cai-panel-section-dm-plugin>`;
   }
 }

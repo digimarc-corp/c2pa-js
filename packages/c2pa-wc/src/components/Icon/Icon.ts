@@ -81,15 +81,15 @@ export class Icon extends LitElement {
     },
     {
       pattern: /solana/i,
-      icon: html`<cai-icon-solana></cai-icon-solana`,
+      icon: html`<cai-icon-solana-dm-plugin></cai-icon-solana-dm-plugin`,
     },
     {
       pattern: /ethereum/i,
-      icon: html`<cai-icon-ethereum></cai-icon-ethereum>`,
+      icon: html`<cai-icon-ethereum-dm-plugin></cai-icon-ethereum-dm-plugin>`,
     },
     {
       pattern: /linkedin/i,
-      icon: html`<cai-icon-linkedin></cai-icon-linkedin>`,
+      icon: html`<cai-icon-linkedin-dm-plugin></cai-icon-linkedin-dm-plugin>`,
     },
   ];
 

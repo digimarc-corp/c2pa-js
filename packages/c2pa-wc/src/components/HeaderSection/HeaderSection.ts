@@ -15,17 +15,17 @@ import '../Tooltip';
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-header-section': PanelSection;
+    'cai-header-section-dm-plugin': PanelSection;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-header-section': any;
+      'cai-header-section-dm-plugin': any;
     }
   }
 }
 
-@customElement('cai-header-section')
+@customElement('cai-header-section-dm-plugin')
 export class PanelSection extends LitElement {
   @property({ type: String })
   header = '';

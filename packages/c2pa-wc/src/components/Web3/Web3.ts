@@ -22,17 +22,17 @@ var hidden = false;
 
 declare global {
   interface HTMLElementTagNameMap {
-    'cai-web3': Web3;
+    'cai-web3-dm-plugin': Web3;
   }
 
   namespace JSX {
     interface IntrinsicElements {
-      'cai-web3': any;
+      'cai-web3-dm-plugin': any;
     }
   }
 }
 
-@customElement('cai-web3')
+@customElement('cai-web3-dm-plugin')
 export class Web3 extends Localizable(LitElement) {
   static get styles() {
     return [
@@ -65,34 +65,34 @@ export class Web3 extends Localizable(LitElement) {
   data: L2Web3 | undefined;
 
   render() {
-    return html`<cai-panel-section>
+    return html`<cai-panel-section-dm-plugin>
       <div slot="header">${this.strings['web3.header']}</div>
       <div slot="content">
         <ul class="web3-list">
           ${this.data?.solana && this.data?.solana.length > 0
             ? html`
-                <cai-web3-pill
+                <cai-web3-pill-dm-plugin
                   key="solana"
                   address=${this.data?.solana}
                   hidden="false"
                   locale=${this.locale}
                 >
-                </cai-web3-pill>
+                </cai-web3-pill-dm-plugin>
               `
             : nothing}
           ${this.data?.ethereum && this.data?.ethereum.length > 0
             ? html`
-                <cai-web3-pill
+                <cai-web3-pill-dm-plugin
                   key="ethereum"
                   address=${this.data?.ethereum}
                   hidden="false"
                   locale=${this.locale}
                 >
-                </cai-web3-pill>
+                </cai-web3-pill-dm-plugin>
               `
             : nothing}
         </ul>
       </div>
-    </cai-panel-section>`;
+    </cai-panel-section-dm-plugin>`;
   }
 }
