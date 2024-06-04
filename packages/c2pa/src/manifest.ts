@@ -8,7 +8,9 @@
  */
 
 import {
+  ClaimGeneratorInfo,
   Credential,
+  ResourceStore,
   SignatureInfo,
   Manifest as ToolkitManifest,
 } from '@contentauth/toolkit';
@@ -16,6 +18,10 @@ import { AssertionAccessor, createAssertionAccessor } from './assertions';
 import { Ingredient, createIngredient } from './ingredient';
 import { ManifestMap } from './manifestStore';
 import { Thumbnail, createThumbnail } from './thumbnail';
+
+type ResolvedClaimGeneratorInfo = Omit<ClaimGeneratorInfo, 'icon'> & {
+  icon: Thumbnail | null;
+};
 
 export interface Manifest {
   /**
@@ -38,6 +44,7 @@ export interface Manifest {
    */
   claimGenerator: string;
   claimGeneratorHints: Record<string, unknown> | null;
+  claimGeneratorInfo: ResolvedClaimGeneratorInfo[];
 
   /**
    * Instance ID from `xmpMM:InstanceID` in XMP metadata.
@@ -80,6 +87,22 @@ export interface Manifest {
   assertions: AssertionAccessor;
 }
 
+function parseClaimGeneratorInfo(
+  resources: ResourceStore,
+  info: ClaimGeneratorInfo[] | null | undefined,
+): ResolvedClaimGeneratorInfo[] {
+  if (info) {
+    return info.map((fields) => {
+      return {
+        ...fields,
+        icon: fields.icon ? createThumbnail(resources, fields.icon) : null,
+      } as ResolvedClaimGeneratorInfo;
+    });
+  }
+
+  return [];
+}
+
 /**
  * Creates a facade object with convenience methods over manifest data returned from the toolkit.
  *
@@ -105,15 +128,17 @@ export function createManifest(
     vendor: manifestData.vendor ?? null,
     claimGenerator: manifestData.claim_generator,
     claimGeneratorHints: manifestData.claim_generator_hints ?? null,
+    claimGeneratorInfo: parseClaimGeneratorInfo(
+      manifestData.resources,
+      manifestData.claim_generator_info,
+    ),
     instanceId: manifestData.instance_id,
     signatureInfo: manifestData.signature_info ?? null,
     credentials: manifestData.credentials ?? [],
     ingredients,
     redactions: manifestData.redactions ?? [],
     parent: null,
-
     thumbnail: createThumbnail(manifestData.resources, manifestData.thumbnail),
-
     assertions: createAssertionAccessor(manifestData.assertions),
   };
 }

@@ -1,6 +1,62 @@
 # Change Log - @contentauth/toolkit
 
-This log was last generated on Wed, 04 Oct 2023 21:32:12 GMT and should not be manually modified.
+This log was last generated on Fri, 12 Apr 2024 19:34:30 GMT and should not be manually modified.
+
+## 0.11.4
+Fri, 12 Apr 2024 19:34:30 GMT
+
+### Patches
+
+- Expose `GeneratorInfoMap`
+
+## 0.11.3
+Fri, 05 Apr 2024 18:04:37 GMT
+
+### Patches
+
+- Add types for c2pa.actions.v2
+
+## 0.11.2
+Fri, 05 Apr 2024 16:07:54 GMT
+
+### Patches
+
+- Update c2pa-rs to 0.31.3
+
+## 0.11.1
+Tue, 26 Mar 2024 21:30:40 GMT
+
+### Patches
+
+- Update c2pa-rs to 0.31.1
+
+## 0.11.0
+Mon, 18 Mar 2024 21:08:16 GMT
+
+### Minor changes
+
+- Update to c2pa-rs 0.31.0, add settings support
+
+## 0.10.6
+Thu, 07 Mar 2024 22:56:51 GMT
+
+### Patches
+
+- Update dependencies
+
+## 0.10.5
+Thu, 11 Jan 2024 20:02:01 GMT
+
+### Patches
+
+- Update c2pa-rs version for PDF/AVI support
+
+## 0.10.4
+Tue, 05 Dec 2023 22:00:22 GMT
+
+### Patches
+
+- Add type for claim_generator_info
 
 ## 0.10.3
 Wed, 04 Oct 2023 21:32:12 GMT

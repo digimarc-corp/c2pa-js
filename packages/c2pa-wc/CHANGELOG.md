@@ -1,6 +1,84 @@
 # Change Log - c2pa-wc
 
-This log was last generated on Wed, 04 Oct 2023 22:10:09 GMT and should not be manually modified.
+This log was last generated on Wed, 22 May 2024 15:16:13 GMT and should not be manually modified.
+
+## 0.13.1
+Wed, 22 May 2024 15:16:13 GMT
+
+### Patches
+
+- extended hidden layer to allow hovering on L2 in right-start position
+
+## 0.13.0
+Mon, 22 Apr 2024 15:46:27 GMT
+
+### Minor changes
+
+- Add i18n registration API, remove stringMap from component config
+
+## 0.12.5
+Fri, 12 Apr 2024 19:34:30 GMT
+
+_Version update only_
+
+## 0.12.4
+Fri, 05 Apr 2024 19:04:44 GMT
+
+_Version update only_
+
+## 0.12.3
+Fri, 05 Apr 2024 18:04:37 GMT
+
+_Version update only_
+
+## 0.12.2
+Fri, 05 Apr 2024 16:07:54 GMT
+
+_Version update only_
+
+## 0.12.1
+Tue, 26 Mar 2024 21:30:40 GMT
+
+_Version update only_
+
+## 0.12.0
+Tue, 19 Mar 2024 18:41:20 GMT
+
+### Minor changes
+
+- new L2 look (nutritional label) and added web3/ai tool used sections
+
+## 0.11.18
+Mon, 18 Mar 2024 21:08:16 GMT
+
+_Version update only_
+
+## 0.11.17
+Thu, 07 Mar 2024 22:56:51 GMT
+
+_Version update only_
+
+## 0.11.16
+Fri, 16 Feb 2024 16:46:52 GMT
+
+_Version update only_
+
+## 0.11.15
+Wed, 07 Feb 2024 15:56:22 GMT
+
+### Patches
+
+- Fix issue where Invalid Date would show if no signature date was found (which is optional)
+
+## 0.11.14
+Thu, 11 Jan 2024 20:02:01 GMT
+
+_Version update only_
+
+## 0.11.13
+Tue, 05 Dec 2023 22:00:22 GMT
+
+_Version update only_
 
 ## 0.11.12
 Wed, 04 Oct 2023 22:10:09 GMT

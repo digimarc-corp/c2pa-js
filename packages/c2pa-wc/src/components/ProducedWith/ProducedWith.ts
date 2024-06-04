@@ -7,15 +7,15 @@
  * it.
  */
 
-import { L2ManifestStore } from 'c2pa';
-import { css, html, LitElement } from 'lit';
+import { L2ClaimGenerator, L2ManifestStore } from 'c2pa';
+import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import defaultStringMap from './ProducedWith.str.json';
 import { baseSectionStyles, defaultStyles } from '../../styles';
-import { ConfigurablePanelSection } from '../../mixins/configurablePanelSection';
+import { Localizable } from '../../mixins/localizable';
 
-import '../PanelSection';
+import { hasChanged } from '../../utils';
 import '../Icon';
+import '../PanelSection';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -33,15 +33,8 @@ export interface ProducedWithConfig {
   stringMap: Record<string, string>;
 }
 
-const defaultConfig: ProducedWithConfig = {
-  stringMap: defaultStringMap,
-};
-
 @customElement('cai-produced-with-dm-plugin')
-export class ProducedWith extends ConfigurablePanelSection(LitElement, {
-  dataSelector: (manifestStore) => manifestStore.claimGenerator,
-  config: defaultConfig,
-}) {
+export class ProducedWith extends Localizable(LitElement) {
   static get styles() {
     return [
       defaultStyles,
@@ -53,29 +46,41 @@ export class ProducedWith extends ConfigurablePanelSection(LitElement, {
         }
 
         .section-produced-with-beta-dm-plugin {
-          margin-left: 24px;
           color: var(--cai-secondary-color);
         }
       `,
     ];
   }
 
+  @property({
+    type: Object,
+    hasChanged,
+  })
+  data: L2ClaimGenerator | undefined;
+
+  @property({
+    type: Object,
+    hasChanged,
+  })
+  manifestStore: L2ManifestStore | undefined;
+
   render() {
-    return this.renderSection(html` <cai-panel-section-dm-plugin
-      header=${this._config.stringMap['produced-with.header']}
-      helpText=${this._config.stringMap['produced-with.helpText']}
+    return html` <cai-panel-section-dm-plugin
+      helpText=${this.strings['produced-with.helpText']}
     >
-      <div>
-        <div class="section-produced-with-content-dm-plugin">
-          <cai-icon source="${this._data?.product}"></cai-icon>
-          <span> ${this._data?.product} </span>
+      <div slot="header">${this.strings['produced-with.header']}</div>
+      <div slot="content">
+        <div class="section-produced-with-content">
+          <span> ${this.data?.product ?? ''}    
+          ${
+            this.manifestStore?.isBeta
+              ? html`<span class="section-produced-with-beta-dm-plugin">
+                  ${this.strings['produced-with.beta']}
+                </span>`
+              : null
+          } </span>
         </div>
-        ${this.manifestStore?.isBeta
-          ? html`<div class="section-produced-with-beta-dm-plugin">
-              ${this._config.stringMap['produced-with.beta']}
-            </div>`
-          : null}
-      </div>
-    </cai-panel-section-dm-plugin>`);
+      <div>
+    </cai-panel-section-dm-plugin>`;
   }
 }

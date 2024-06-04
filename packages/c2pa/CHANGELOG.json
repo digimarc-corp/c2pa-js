@@ -2,6 +2,190 @@
   "name": "c2pa",
   "entries": [
     {
+      "version": "0.21.0",
+      "tag": "c2pa_v0.21.0",
+      "date": "Mon, 22 Apr 2024 15:46:27 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add i18n registration API for selectEditsAndActivity"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.20.0",
+      "tag": "c2pa_v0.20.0",
+      "date": "Fri, 12 Apr 2024 19:34:30 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add support for V2 Actions when using `selectGenerativeInfo`"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.11.4`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.19.4",
+      "tag": "c2pa_v0.19.4",
+      "date": "Fri, 05 Apr 2024 19:04:44 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add icons for actions.v2"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.19.3",
+      "tag": "c2pa_v0.19.3",
+      "date": "Fri, 05 Apr 2024 18:04:37 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add support for c2pa.actions.v2 in selectEditsAndActivity"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.11.3`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.19.2",
+      "tag": "c2pa_v0.19.2",
+      "date": "Fri, 05 Apr 2024 16:07:54 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add MOV support"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.11.2`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.19.1",
+      "tag": "c2pa_v0.19.1",
+      "date": "Tue, 26 Mar 2024 21:30:40 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add dubbed and translated action support"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.11.1`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.19.0",
+      "tag": "c2pa_v0.19.0",
+      "date": "Tue, 19 Mar 2024 18:41:20 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "web3 and gen AI support in createL2ManifestStore"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.18.0",
+      "tag": "c2pa_v0.18.0",
+      "date": "Mon, 18 Mar 2024 21:08:16 GMT",
+      "comments": {
+        "minor": [
+          {
+            "comment": "Add settings and trust list support"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.11.0`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.17.9",
+      "tag": "c2pa_v0.17.9",
+      "date": "Thu, 07 Mar 2024 22:56:51 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add embedded icon support in claim_generator_info"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.10.6`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.17.8",
+      "tag": "c2pa_v0.17.8",
+      "date": "Fri, 16 Feb 2024 16:46:52 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "added string and icon for c2pa.edited.metadata action"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.17.7",
+      "tag": "c2pa_v0.17.7",
+      "date": "Thu, 11 Jan 2024 20:02:01 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Support AVI and PDF"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.10.5`"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.17.6",
+      "tag": "c2pa_v0.17.6",
+      "date": "Tue, 05 Dec 2023 22:00:22 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Expose claimGeneratorInfo"
+          }
+        ],
+        "dependency": [
+          {
+            "comment": "Updating dependency \"@contentauth/toolkit\" to `0.10.4`"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.17.5",
       "tag": "c2pa_v0.17.5",
       "date": "Wed, 04 Oct 2023 22:10:09 GMT",

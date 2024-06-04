@@ -5,6 +5,34 @@ interface TestContext {
 }
 
 describe('c2pa', function () {
+  describe('file support', function () {
+    it('should read AVIs', async function () {
+      const c2pa = await createC2pa({
+        wasmSrc: './dist/assets/wasm/toolkit_bg.wasm',
+        workerSrc: './dist/c2pa.worker.js',
+      });
+
+      const result = await c2pa.read(
+        './node_modules/@contentauth/testing/fixtures/images/sample.avi',
+      );
+
+      expect(result.manifestStore).not.toBeNull();
+    });
+
+    it('should read PDFs', async function () {
+      const c2pa = await createC2pa({
+        wasmSrc: './dist/assets/wasm/toolkit_bg.wasm',
+        workerSrc: './dist/c2pa.worker.js',
+      });
+
+      const result = await c2pa.read(
+        './node_modules/@contentauth/testing/fixtures/images/sample.pdf',
+      );
+
+      expect(result.manifestStore).not.toBeNull();
+    });
+  });
+
   describe('#read', function () {
     describe('CAICAI.jpg', function () {
       beforeAll(async function (this: TestContext) {
@@ -192,7 +220,6 @@ describe('c2pa', function () {
               {
                 label: 'adobe.beta',
                 data: { version: '0.12.5' },
-                kind: 'Json',
               },
               {
                 label: 'stds.schema-org.CreativeWork',
@@ -203,13 +230,15 @@ describe('c2pa', function () {
                 },
                 kind: 'Json',
               },
-              { label: 'c2pa.actions', data: { actions: jasmine.any(Array) } },
+              {
+                label: 'c2pa.actions',
+                data: { actions: jasmine.any(Array) },
+              },
               {
                 label: 'adobe.dictionary',
                 data: {
                   url: 'https://cai-assertions.adobe.com/photoshop/dictionary.json',
                 },
-                kind: 'Json',
               },
             ] as any);
           });
