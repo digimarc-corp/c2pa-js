@@ -12,6 +12,7 @@ import {
   Credential,
   ResourceStore,
   SignatureInfo,
+  ClaimGeneratorInfo,
   Manifest as ToolkitManifest,
 } from '@contentauth/toolkit';
 import { AssertionAccessor, createAssertionAccessor } from './assertions';

@@ -29,6 +29,11 @@ declare module './assertions' {
 
 export type ErrorStatus = 'otgp' | 'error' | null;
 
+export type AlertType = {
+  message: string;
+  type: 'info' | 'warning' | 'error';
+};
+
 /**
  * Manifest representation suitable for use with c2pa-wc.
  */
@@ -45,6 +50,8 @@ export interface L2ManifestStore {
   isBeta: boolean;
   error: ErrorStatus;
   validationStatus: ValidationStatus[];
+  alert?: AlertType | null;
+  watermarkProvider?: string | null;
 }
 
 export interface L2Signature {

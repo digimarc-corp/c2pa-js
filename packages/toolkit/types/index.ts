@@ -67,6 +67,7 @@ export interface Manifest extends ResourceParent {
   claim_generator: string;
   claim_generator_hints?: Record<string, unknown>;
   claim_generator_info?: ClaimGeneratorInfo[];
+  claim_generator_info?: ClaimGeneratorInfo[];
   title: string;
   format: string;
   instance_id: string;
