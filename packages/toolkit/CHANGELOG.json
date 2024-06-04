@@ -2,6 +2,30 @@
   "name": "@contentauth/toolkit",
   "entries": [
     {
+      "version": "0.10.5",
+      "tag": "@contentauth/toolkit_v0.10.5",
+      "date": "Thu, 11 Jan 2024 20:02:01 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Update c2pa-rs version for PDF/AVI support"
+          }
+        ]
+      }
+    },
+    {
+      "version": "0.10.4",
+      "tag": "@contentauth/toolkit_v0.10.4",
+      "date": "Tue, 05 Dec 2023 22:00:22 GMT",
+      "comments": {
+        "patch": [
+          {
+            "comment": "Add type for claim_generator_info"
+          }
+        ]
+      }
+    },
+    {
       "version": "0.10.3",
       "tag": "@contentauth/toolkit_v0.10.3",
       "date": "Wed, 04 Oct 2023 21:32:12 GMT",

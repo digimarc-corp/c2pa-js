@@ -43,6 +43,7 @@ export interface ManifestSummaryConfig
   stringMap: Record<string, string>;
   sections?: {
     assetsUsed?: boolean;
+    alert?: boolean;
     editsAndActivity?: boolean;
     producedBy?: boolean;
     producedWith?: boolean;
@@ -57,6 +58,7 @@ const defaultConfig: ManifestSummaryConfig = {
   showDescriptions: true,
   sections: {
     assetsUsed: true,
+    alert: true,
     editsAndActivity: true,
     producedBy: true,
     producedWith: true,
@@ -159,6 +161,21 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
       return null;
     }
 
+    let alertColor;
+
+    if (this.manifestStore.alert) {
+      switch (this.manifestStore.alert.type) {
+        case 'warning':
+          alertColor = '#f4c571';
+          break;
+        case 'error':
+          alertColor = '#ff7c76';
+          break;
+        default:
+          alertColor = '#2dcdcd';
+      }
+    }
+
     return html`<div id="container-dm-plugin">
       <div id="content-container-dm-plugin">
         <cai-minimum-viable-provenance-dm-plugin
@@ -179,6 +196,15 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                     ></cai-content-summary-dm-plugin>
                   `
                 : nothing}
+              ${this.manifestStore?.alert
+                ? html`
+                    <div
+                      style="background-color: ${alertColor}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
+                    >
+                      ${this.manifestStore.alert.message}
+                    </div>
+                  `
+                : nothing}
               ${this._config?.sections?.producedBy
                 ? html`
                     <cai-produced-by-dm-plugin
@@ -193,6 +219,16 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-produced-with-dm-plugin>
+                  `
+                : nothing}
+              ${this.manifestStore?.watermarkProvider
+                ? html`
+                    <cai-panel-section-dm-plugin
+                      header=${'Watermarked by'}
+                      helpText=${'The provider of the watermark'}
+                    >
+                      <div>${this.manifestStore.watermarkProvider}</div>
+                    </cai-panel-section-dm-plugin>
                   `
                 : nothing}
               ${this._config?.sections?.editsAndActivity
