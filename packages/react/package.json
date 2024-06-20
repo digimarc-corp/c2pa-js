@@ -32,7 +32,7 @@
   "homepage": "https://github.com/contentauth/c2pa-js#readme",
   "dependencies": {
     "lodash": "^4.17.21",
-    "classnames": "~2.3.1"
+    "classnames": "~2.5.1"
   },
   "peerDependencies": {
     "c2pa": "^0.21.0",
