@@ -13,8 +13,8 @@ export interface IScanResult {
 }
 declare const worker: {
     compileWasm(buffer: ArrayBuffer): Promise<WebAssembly.Module>;
-    getReport(wasm: WebAssembly.Module, buffer: ArrayBuffer, type: string): Promise<ManifestStore>;
-    getReportFromAssetAndManifestBuffer(wasm: WebAssembly.Module, manifestBuffer: ArrayBuffer, asset: Blob): Promise<ManifestStore>;
+    getReport(wasm: WebAssembly.Module, buffer: ArrayBuffer, type: string, settings?: string | undefined): Promise<ManifestStore>;
+    getReportFromAssetAndManifestBuffer(wasm: WebAssembly.Module, manifestBuffer: ArrayBuffer, asset: Blob, settings?: string | undefined): Promise<ManifestStore>;
     scanInput(wasm: WebAssembly.Module, buffer: ArrayBuffer): Promise<IScanResult>;
 };
 export declare type Worker = typeof worker;

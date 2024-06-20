@@ -10,6 +10,7 @@ export declare const icons: {
     'c2pa.color_adjustments': string;
     'c2pa.created': string;
     'c2pa.cropped': string;
+    'c2pa.deleted': string;
     'c2pa.drawing': string;
     'c2pa.edited': string;
     'c2pa.filtered': string;
@@ -18,6 +19,9 @@ export declare const icons: {
     'c2pa.placed': string;
     'c2pa.resized': string;
     'c2pa.unknown': string;
+    'c2pa.edited.metadata': string;
+    'c2pa.translated': string;
+    'c2pa.dubbed': string;
     'com.adobe.3d': string;
     'com.adobe.animation_video': string;
     'com.adobe.combined_asssets': string;

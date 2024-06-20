@@ -1,4 +1,4 @@
-import{s as a,r as e,$ as s}from"../../../e4c0417e.js";customElements.define("cai-icon-instagram-dm-plugin",class extends a{static get styles(){return e`
+import{s as a,r as e,$ as t}from"../../../e4c0417e.js";class s extends a{static get styles(){return e`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -13,7 +13,7 @@ import{s as a,r as e,$ as s}from"../../../e4c0417e.js";customElements.define("ca
 
       path {
       }
-    `}render(){return s`<div aria-hidden="true">
+    `}render(){return t`<div aria-hidden="true">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
@@ -40,4 +40,4 @@ import{s as a,r as e,$ as s}from"../../../e4c0417e.js";customElements.define("ca
           style="fill:url(#a)"
         />
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-instagram-dm-plugin",s);export{s as default};

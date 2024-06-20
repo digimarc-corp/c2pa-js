@@ -1,4 +1,4 @@
-import{s as i,r as e,$ as a}from"../../e4c0417e.js";customElements.define("cai-icon-broken-image-dm-plugin",class extends i{static get styles(){return e`
+import{s as i,r as e,$ as a}from"../../e4c0417e.js";class t extends i{static get styles(){return e`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -26,4 +26,4 @@ import{s as i,r as e,$ as a}from"../../e4c0417e.js";customElements.define("cai-i
           fill-rule="nonzero"
         />
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-broken-image-dm-plugin",t);export{t as default};

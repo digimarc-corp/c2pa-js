@@ -1,24 +1,22 @@
-import{__decorate as o}from"../../b803f408.js";import{s as i,r as t,$ as e}from"../../e4c0417e.js";import{n as s}from"../../06170432.js";import{defaultStyles as r,baseSectionStyles as c}from"../../styles.js";import{ConfigurablePanelSection as n}from"../../mixins/configurablePanelSection.js";import"../PanelSection/PanelSection.js";import"../Icon/Icon.js";import"../../mixins/configurable.js";import"../../12d8f3c3.js";import"../../utils.js";import"../../mixins/panelSection.js";import"../Tooltip/Tooltip.js";import"../Popover/Popover.js";import"../../icons/monochrome/help.js";import"../../icons/color/logos/adobe-stock.js";import"../../icons/color/logos/adobe.js";import"../../icons/color/logos/behance.js";import"../../icons/color/logos/cai.js";import"../../icons/color/logos/facebook.js";import"../../icons/color/logos/instagram.js";import"../../icons/color/logos/lightroom.js";import"../../icons/color/logos/photoshop.js";import"../../icons/color/logos/truepic.js";import"../../icons/color/logos/twitter.js";const l={stringMap:{"produced-with.header":"Produced with","produced-with.helpText":"Software used to make this content","produced-with.beta":"Content Credentials (Beta)"}};let p=class extends(n(i,{dataSelector:o=>o.claimGenerator,config:l})){static get styles(){return[r,c,t`
+import{__decorate as o,e as i}from"../../b803f408.js";import{r as t,$ as s,s as e}from"../../e4c0417e.js";import{n as r}from"../../06170432.js";import{defaultStyles as c,baseSectionStyles as n}from"../../styles.js";import{Localizable as l}from"../../mixins/localizable.js";import{hasChanged as p}from"../../3e371bb9.js";import"../Icon/Icon.js";import"../PanelSection/PanelSection.js";import"../../12d8f3c3.js";import"../../i18n/index.js";import"../../icons/color/logos/adobe-stock.js";import"../../icons/color/logos/adobe.js";import"../../icons/color/logos/behance.js";import"../../icons/color/logos/cai.js";import"../../icons/color/logos/ethereum.js";import"../../icons/color/logos/facebook.js";import"../../icons/color/logos/instagram.js";import"../../icons/color/logos/lightroom.js";import"../../icons/color/logos/linkedin.js";import"../../icons/color/logos/photoshop.js";import"../../icons/color/logos/solana.js";import"../../icons/color/logos/truepic.js";import"../../icons/color/logos/twitter.js";import"../Tooltip/Tooltip.js";import"../../5aacf6e0.js";import"../../icons/monochrome/help.js";let d=class extends(l(e)){static get styles(){return[c,n,t`
         .section-produced-with-content-dm-plugin {
           display: flex;
           align-items: center;
         }
 
         .section-produced-with-beta-dm-plugin {
-          margin-left: 24px;
           color: var(--cai-secondary-color);
         }
-      `]}render(){var o,i,t;return this.renderSection(e` <cai-panel-section-dm-plugin
-      header=${this._config.stringMap["produced-with.header"]}
-      helpText=${this._config.stringMap["produced-with.helpText"]}
+      `]}render(){var o,i,t;return s` <cai-panel-section-dm-plugin
+      helpText=${this.strings["produced-with.helpText"]}
     >
-      <div>
-        <div class="section-produced-with-content-dm-plugin">
-          <cai-icon source="${null===(o=this._data)||void 0===o?void 0:o.product}"></cai-icon>
-          <span> ${null===(i=this._data)||void 0===i?void 0:i.product} </span>
+      <div slot="header">${this.strings["produced-with.header"]}</div>
+      <div slot="content">
+        <div class="section-produced-with-content">
+          <span> ${null!==(i=null===(o=this.data)||void 0===o?void 0:o.product)&&void 0!==i?i:""}    
+          ${(null===(t=this.manifestStore)||void 0===t?void 0:t.isBeta)?s`<span class="section-produced-with-beta-dm-plugin">
+                  ${this.strings["produced-with.beta"]}
+                </span>`:null} </span>
         </div>
-        ${(null===(t=this.manifestStore)||void 0===t?void 0:t.isBeta)?e`<div class="section-produced-with-beta-dm-plugin">
-              ${this._config.stringMap["produced-with.beta"]}
-            </div>`:null}
-      </div>
-    </cai-panel-section-dm-plugin>`)}};p=o([s("cai-produced-with-dm-plugin")],p);
+      <div>
+    </cai-panel-section-dm-plugin>`}};o([i({type:Object,hasChanged:p})],d.prototype,"data",void 0),o([i({type:Object,hasChanged:p})],d.prototype,"manifestStore",void 0),d=o([r("cai-produced-with-dm-plugin")],d);export{d as ProducedWith};

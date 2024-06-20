@@ -8,4 +8,4 @@ import{__decorate as i,e as r}from"../../b803f408.js";import{s as t,r as c,$ as 
           --cai-icon-width: var(--cai-indicator-size, 24px);
           --cai-icon-height: var(--cai-indicator-size, 24px);
         }
-      `]}render(){switch(this.variant){case"warning":return n`<cai-icon-missing-dm-plugin class="icon" />`;case"error":return n`<cai-icon-alert-dm-plugin class="icon" />`}return n`<cai-icon-info-dm-plugin class="icon" />`}};i([r({type:String})],s.prototype,"variant",void 0),s=i([o("cai-indicator-dm-plugin")],s);
+      `]}render(){switch(this.variant){case"warning":return n`<cai-icon-missing-dm-plugin class="icon" />`;case"error":return n`<cai-icon-alert-dm-plugin class="icon" />`}return n`<cai-icon-info-dm-plugin class="icon" />`}};i([r({type:String})],s.prototype,"variant",void 0),s=i([o("cai-indicator-dm-plugin")],s);export{s as Indicator};

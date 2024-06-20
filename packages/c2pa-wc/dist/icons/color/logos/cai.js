@@ -1,4 +1,4 @@
-import{s as i,r as e,$ as t}from"../../../e4c0417e.js";customElements.define("cai-icon-cai-dm-plugin",class extends i{static get styles(){return e`
+import{s as i,r as e,$ as t}from"../../../e4c0417e.js";class r extends i{static get styles(){return e`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -26,4 +26,4 @@ import{s as i,r as e,$ as t}from"../../../e4c0417e.js";customElements.define("ca
           fill-rule="evenodd"
         />
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-cai-dm-plugin",r);export{r as default};

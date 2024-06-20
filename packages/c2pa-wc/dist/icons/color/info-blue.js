@@ -1,4 +1,4 @@
-import{s as i,r as e,$ as t}from"../../e4c0417e.js";customElements.define("cai-icon-info-blue-dm-plugin",class extends i{static get styles(){return e`
+import{s as i,r as e,$ as t}from"../../e4c0417e.js";class l extends i{static get styles(){return e`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -32,4 +32,4 @@ import{s as i,r as e,$ as t}from"../../e4c0417e.js";customElements.define("cai-i
           />
         </g>
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-info-blue-dm-plugin",l);export{l as default};

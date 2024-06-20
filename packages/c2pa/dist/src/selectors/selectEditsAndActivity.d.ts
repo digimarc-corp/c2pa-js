@@ -6,7 +6,7 @@
  * accordance with the terms of the Adobe license agreement accompanying
  * it.
  */
-import { C2paActionsAssertion } from '@contentauth/toolkit';
+import { C2paActionsAssertion, C2paActionsAssertionV2 } from '@contentauth/toolkit';
 import { Manifest } from '../manifest';
 interface AdobeDictionaryAssertionData {
     url: string;
@@ -73,6 +73,7 @@ export declare function selectEditsAndActivity(manifest: Manifest, locale?: stri
  * @param locale - BCP-47 locale code (e.g. `en-US`, `fr-FR`) to request localized strings, if available
  * @returns List of translated action categories
  */
-export declare function getC2paCategorizedActions(actionsAssertion: C2paActionsAssertion, locale?: string): TranslatedDictionaryCategory[];
+export declare function getC2paCategorizedActions(actionsAssertion: C2paActionsAssertion | C2paActionsAssertionV2, locale?: string): TranslatedDictionaryCategory[];
+export declare function registerLocaleForEditsAndActivities(bcp47: string, data: Record<string, string>): void;
 export {};
 //# sourceMappingURL=selectEditsAndActivity.d.ts.map

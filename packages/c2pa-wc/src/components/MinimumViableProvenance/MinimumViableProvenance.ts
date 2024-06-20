@@ -9,14 +9,13 @@
 
 import { L2ManifestStore } from 'c2pa';
 import { isValid, parseISO } from 'date-fns';
-import { css, html, LitElement, nothing } from 'lit';
+import { LitElement, css, html, nothing } from 'lit';
+import { classMap } from 'lit-html/directives/class-map.js';
 import { customElement, property } from 'lit/decorators.js';
-import defaultStringMap from './MinimumViableProvenance.str.json';
-import { defaultDateFormatter } from '../../utils';
 import { Configurable } from '../../mixins/configurable';
 import { baseSectionStyles, defaultStyles } from '../../styles';
-import { getBadgeFromManifestStore } from '../../badge';
-import { classMap } from 'lit-html/directives/class-map.js';
+import { defaultDateFormatter } from '../../utils';
+import { Localizable } from '../../mixins/localizable';
 
 import '../PanelSection';
 
@@ -33,18 +32,16 @@ declare global {
 }
 
 export interface MinimumViableProvenanceConfig {
-  stringMap: Record<string, string>;
   dateFormatter: (date: Date) => string;
 }
 
 const defaultConfig: MinimumViableProvenanceConfig = {
-  stringMap: defaultStringMap,
   dateFormatter: defaultDateFormatter,
 };
 
 @customElement('cai-minimum-viable-provenance-dm-plugin')
 export class MinimumViableProvenance extends Configurable(
-  LitElement,
+  Localizable(LitElement),
   defaultConfig,
 ) {
   @property({
@@ -57,33 +54,33 @@ export class MinimumViableProvenance extends Configurable(
       defaultStyles,
       baseSectionStyles,
       css`
-      .minimum-viable-provenance-content-dm-plugin {
-        --cai-thumbnail-size: 48px;
-        display: grid;
-        grid-template-columns: 48px auto;
-        grid-gap: 2px 10px;
-        text-align: left;
-      }
-      .minimum-viable-provenance-thumbnail-dm-plugin {
-        grid-column: 1;
-        grid-row: 1 / 3;
-      }
-      .minimum-viable-provenance-signer-dm-plugin {
-        grid-column: 2;
-        grid-row: 1;
-        align-self: flex-end;
-        display: grid;
-        grid-template-columns: min-content max-content;
-        align-items: center;
-      }
-      .minimum-viable-provenance-signer-dm-plugin.no-date {
-        grid-row: span 2;
-        height: 100%;
-      }
-      .minimum-viable-provenance-date-dm-plugin {
-        grid-column: 2;
-        grid-row: 2;
-        color: var(--cai-secondary-color, #6e6e6e);
+        .minimum-viable-provenance-content-dm-plugin {
+          display: flex;
+          text-align: left;
+          color: #666666;
+        }
+        div.container-dm-plugin {
+          padding: var(
+            --cai-manifest-summary-content-padding,
+            12px 16px 12px 16px
+          );
+        }
+        .minimum-viable-provenance-signer-dm-plugin.no-date {
+          height: 100%;
+        }
+        div.heading {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        div.heading-text {
+          color: var(
+            --cai-panel-section-heading-color,
+            var(--cai-primary-color)
+          );
+          font-size: 18px;
+          font-weight: var(--cai-panel-section-heading-font-weight, bold);
+        }
       `,
     ];
   }
@@ -100,34 +97,30 @@ export class MinimumViableProvenance extends Configurable(
       ? parseISO(this.manifestStore?.signature.isoDateString)
       : undefined;
 
-    return html` <cai-panel-section-dm-plugin
-      header=${this._config.stringMap['minimum-viable-provenance.header']}
-      helpText=${this._config.stringMap['minimum-viable-provenance.helpText']}
-    >
-      <div class="minimum-viable-provenance-content-dm-plugin">
-        <cai-thumbnail-dm-plugin
-          class="minimum-viable-provenance-thumbnail-dm-plugin"
-          src=${this.manifestStore?.thumbnail}
-        ></cai-thumbnail-dm-plugin>
-        <div class=${classMap(mvpClasses)}>
-          <cai-icon-dm-plugin
-            slot="icon"
-            source=${this.manifestStore?.signature?.issuer}
-          ></cai-icon-dm-plugin>
-          <span> ${this.manifestStore?.signature?.issuer} </span>
+    return html`
+      <div class="container-dm-plugin">
+        <div class="heading">
+          <div class="heading-text">
+            ${this.strings['minimum-viable-provenance.header']}
+          </div>
         </div>
-        ${!hasError
-          ? html`
-              <div class="minimum-viable-provenance-date-dm-plugin">
-                ${isValid(signatureDate)
-                  ? html`${this._config?.dateFormatter(signatureDate!)}`
-                  : html`${this._config?.stringMap[
-                      'minimum-viable-provenance.invalidDate'
-                    ]}`}
-              </div>
-            `
-          : nothing}
+        <div class="minimum-viable-provenance-content-dm-plugin">
+          <div class=${classMap(mvpClasses)}>
+            <span>
+              ${this.strings['minimum-viable-provenance.issuedBy']}
+              ${this.manifestStore?.signature?.issuer}
+              ${!hasError
+                ? html`
+                    ${signatureDate && isValid(signatureDate)
+                      ? html`${this.strings['minimum-viable-provenance.on']}
+                        ${this._config?.dateFormatter(signatureDate!)}`
+                      : nothing}
+                  `
+                : nothing}
+            </span>
+          </div>
+        </div>
       </div>
-    </cai-panel-section-dm-plugin>`;
+    `;
   }
 }

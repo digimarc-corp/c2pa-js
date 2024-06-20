@@ -6,8 +6,8 @@
  * accordance with the terms of the Adobe license agreement accompanying
  * it.
  */
-import { ManifestStore } from './manifestStore';
 import { ValidationStatus } from '@contentauth/toolkit';
+import { ManifestStore } from './manifestStore';
 import { GenerativeInfo } from './selectors/selectGenerativeInfo';
 declare module './assertions' {
     interface ExtendedAssertions {
@@ -25,7 +25,6 @@ export declare type AlertType = {
  * Manifest representation suitable for use with c2pa-wc.
  */
 export interface L2ManifestStore {
-    ingredients: L2Ingredient[];
     format: string;
     title: string;
     signature: L2Signature | null;
@@ -33,21 +32,13 @@ export interface L2ManifestStore {
     producer: L2Producer | null;
     socialAccounts: L2SocialAccount[] | null;
     thumbnail: string | null;
-    editsAndActivity: L2EditsAndActivity[] | null;
     generativeInfo: GenerativeInfo[] | null;
+    web3: L2Web3 | null;
     isBeta: boolean;
     error: ErrorStatus;
     validationStatus: ValidationStatus[];
     alert?: AlertType | null;
     watermarkProvider?: string | null;
-}
-export interface L2Ingredient {
-    title: string;
-    format: string;
-    thumbnail: string | null;
-    hasManifest: boolean;
-    error: ErrorStatus;
-    validationStatus: ValidationStatus[];
 }
 export interface L2Signature {
     issuer: string | null;
@@ -68,11 +59,9 @@ export interface L2SocialAccount {
     name: string;
     identifier: string;
 }
-export interface L2EditsAndActivity {
-    id: string;
-    icon: string | null;
-    label: string;
-    description: string;
+export interface L2Web3 {
+    ethereum?: string[] | undefined;
+    solana?: string[] | undefined;
 }
 export declare type DisposableL2ManifestStore = {
     manifestStore: L2ManifestStore;

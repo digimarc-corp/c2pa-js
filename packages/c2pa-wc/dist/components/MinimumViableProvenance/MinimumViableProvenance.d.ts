@@ -20,10 +20,9 @@ declare global {
     }
 }
 export interface MinimumViableProvenanceConfig {
-    stringMap: Record<string, string>;
     dateFormatter: (date: Date) => string;
 }
-declare const MinimumViableProvenance_base: (new (...args: any[]) => import("../../mixins/configurable").ConfigurableInterface<MinimumViableProvenanceConfig>) & typeof LitElement;
+declare const MinimumViableProvenance_base: (new (...args: any[]) => import("../../mixins/configurable").ConfigurableInterface<MinimumViableProvenanceConfig>) & (new (...args: any[]) => import("../../mixins/localizable").LocalizableInterface) & typeof LitElement;
 export declare class MinimumViableProvenance extends MinimumViableProvenance_base {
     manifestStore: L2ManifestStore | undefined;
     static get styles(): import("lit").CSSResult[];

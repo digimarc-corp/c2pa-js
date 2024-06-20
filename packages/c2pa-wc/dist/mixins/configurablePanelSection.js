@@ -1,1 +1,0 @@
-import{Configurable as o}from"./configurable.js";import{PanelSection as i}from"./panelSection.js";import"../b803f408.js";import"../12d8f3c3.js";import"../utils.js";import"../e4c0417e.js";const r=(r,t)=>o(i(r,t),t.config);export{r as ConfigurablePanelSection};

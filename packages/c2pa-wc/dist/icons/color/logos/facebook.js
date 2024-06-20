@@ -1,4 +1,4 @@
-import{s as i,r as e,$ as t}from"../../../e4c0417e.js";customElements.define("cai-icon-facebook-dm-plugin",class extends i{static get styles(){return e`
+import{s as e,r as i,$ as t}from"../../../e4c0417e.js";class l extends e{static get styles(){return i`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -32,4 +32,4 @@ import{s as i,r as e,$ as t}from"../../../e4c0417e.js";customElements.define("ca
           />
         </g>
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-facebook-dm-plugin",l);export{l as default};

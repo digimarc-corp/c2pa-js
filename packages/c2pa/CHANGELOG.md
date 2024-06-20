@@ -1,6 +1,76 @@
 # Change Log - c2pa
 
-This log was last generated on Thu, 11 Jan 2024 20:02:01 GMT and should not be manually modified.
+This log was last generated on Mon, 22 Apr 2024 15:46:27 GMT and should not be manually modified.
+
+## 0.21.0
+Mon, 22 Apr 2024 15:46:27 GMT
+
+### Minor changes
+
+- Add i18n registration API for selectEditsAndActivity
+
+## 0.20.0
+Fri, 12 Apr 2024 19:34:30 GMT
+
+### Minor changes
+
+- Add support for V2 Actions when using `selectGenerativeInfo`
+
+## 0.19.4
+Fri, 05 Apr 2024 19:04:44 GMT
+
+### Patches
+
+- Add icons for actions.v2
+
+## 0.19.3
+Fri, 05 Apr 2024 18:04:37 GMT
+
+### Patches
+
+- Add support for c2pa.actions.v2 in selectEditsAndActivity
+
+## 0.19.2
+Fri, 05 Apr 2024 16:07:54 GMT
+
+### Patches
+
+- Add MOV support
+
+## 0.19.1
+Tue, 26 Mar 2024 21:30:40 GMT
+
+### Patches
+
+- Add dubbed and translated action support
+
+## 0.19.0
+Tue, 19 Mar 2024 18:41:20 GMT
+
+### Minor changes
+
+- web3 and gen AI support in createL2ManifestStore
+
+## 0.18.0
+Mon, 18 Mar 2024 21:08:16 GMT
+
+### Minor changes
+
+- Add settings and trust list support
+
+## 0.17.9
+Thu, 07 Mar 2024 22:56:51 GMT
+
+### Patches
+
+- Add embedded icon support in claim_generator_info
+
+## 0.17.8
+Fri, 16 Feb 2024 16:46:52 GMT
+
+### Patches
+
+- added string and icon for c2pa.edited.metadata action
 
 ## 0.17.7
 Thu, 11 Jan 2024 20:02:01 GMT

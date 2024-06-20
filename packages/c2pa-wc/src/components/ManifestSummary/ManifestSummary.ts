@@ -7,23 +7,28 @@
  * it.
  */
 
-import { css, html, LitElement, nothing } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import {
+  L2ManifestStore,
+  selectGenerativeSoftwareAgents,
+  selectGenerativeType,
+} from 'c2pa';
+import { LitElement, css, html, nothing } from 'lit';
+import { classMap } from 'lit-html/directives/class-map.js';
+import { customElement, property, state } from 'lit/decorators.js';
+import { createRef, ref, type Ref } from 'lit/directives/ref.js';
+import { Configurable } from '../../mixins/configurable';
 import { defaultStyles } from '../../styles';
 import { defaultDateFormatter, hasChanged } from '../../utils';
-import { L2ManifestStore } from 'c2pa';
-import type { EditsAndActivityConfig } from '../EditsAndActivity';
 import type { MinimumViableProvenanceConfig } from '../MinimumViableProvenance';
-import { Configurable } from '../../mixins/configurable';
-import defaultStringMap from './ManifestSummary.str.json';
+import { Localizable } from '../../mixins/localizable';
 
+import '../AIToolUsed';
 import '../ContentSummary';
-import '../AssetsUsed';
+import '../MinimumViableProvenance';
 import '../ProducedBy';
 import '../ProducedWith';
 import '../SocialMedia';
-import '../EditsAndActivity';
-import '../MinimumViableProvenance';
+import '../Web3';
 
 declare global {
   interface HTMLElementTagNameMap {
@@ -37,38 +42,15 @@ declare global {
   }
 }
 
-export interface ManifestSummaryConfig
-  extends Pick<MinimumViableProvenanceConfig, 'dateFormatter'>,
-    Pick<EditsAndActivityConfig, 'showDescriptions'> {
-  stringMap: Record<string, string>;
-  sections?: {
-    assetsUsed?: boolean;
-    alert?: boolean;
-    editsAndActivity?: boolean;
-    producedBy?: boolean;
-    producedWith?: boolean;
-    socialMedia?: boolean;
-    contentSummary?: boolean;
-  };
-}
-
-const defaultConfig: ManifestSummaryConfig = {
-  stringMap: defaultStringMap,
+const defaultConfig: MinimumViableProvenanceConfig = {
   dateFormatter: defaultDateFormatter,
-  showDescriptions: true,
-  sections: {
-    assetsUsed: true,
-    alert: true,
-    editsAndActivity: true,
-    producedBy: true,
-    producedWith: true,
-    socialMedia: true,
-    contentSummary: true,
-  },
 };
 
 @customElement('cai-manifest-summary-dm-plugin')
-export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
+export class ManifestSummary extends Configurable(
+  Localizable(LitElement),
+  defaultConfig,
+) {
   static readonly cssParts = {
     viewMore: 'manifest-summary-view-more',
   };
@@ -78,11 +60,15 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
       defaultStyles,
       css`
         #container-dm-plugin {
-          width: var(--cai-manifest-summary-width, 320px);
+          width: var(--cai-manifest-summary-width, 256px);
+          border-radius: 8px;
         }
 
         #content-container-dm-plugin {
-          padding: var(--cai-manifest-summary-content-padding, 20px);
+          padding: var(
+            --cai-manifest-summary-content-padding,
+            12px 16px 12px 16px
+          );
           max-height: var(--cai-manifest-summary-content-max-height, 550px);
           border-bottom-width: var(
             --cai-manifest-summary-content-border-bottom-width,
@@ -97,26 +83,42 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
             #e1e1e1
           );
 
+          border-top-width: var(
+            --cai-manifest-summary-content-border-bottom-width,
+            1px
+          );
+          border-top-style: var(
+            --cai-manifest-summary-content-border-bottom-style,
+            solid
+          );
+          border-top-color: var(
+            --cai-manifest-summary-content-border-bottom-color,
+            #e1e1e1
+          );
+
           overflow-y: auto;
           overflow-x: hidden;
         }
-
-        #content-container-dm-plugin > *:not(:first-child):not([empty]),
-        ::slotted(*) {
-          padding-top: var(--cai-manifest-summary-section-spacing, 20px);
-          margin-top: var(--cai-manifest-summary-section-spacing, 20px);
+        #content-container-dm-plugin> *::(first-child) {
+          padding-top: 0;
+          margin-top: 0;
+          border: none;
+        }
+        #content-container-dm-plugin > *:not(:first-child):not([empty]) {
+          padding-top: var(--cai-manifest-summary-content-padding, 12px);
+          margin-top: var(--cai-manifest-summary-section-spacing, 12px);
           border-top-width: var(
             --cai-manifest-summary-section-border-width,
             1px
-          ) !important;
+          );
           border-top-style: var(
             --cai-manifest-summary-section-border-style,
             solid
-          ) !important;
+          );
           border-top-color: var(
             --cai-manifest-summary-section-border-color,
             #e1e1e1
-          ) !important;
+          );
         }
 
         #view-more-container-dm-plugin {
@@ -128,17 +130,18 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
           transition: all 150ms ease-in-out;
           background-color: transparent;
           border-radius: 9999px;
-          border: 2px solid #b3b3b3;
+          border: 2px solid var(--cai-button-color);
           padding: 8px 0;
           font-weight: bold;
           text-align: center;
           text-decoration: none;
           width: 100%;
           color: var(--cai-primary-color);
+          background-color: var(--cai-button-color);
         }
 
-        #view-more-dm-plugin:hover {
-          background-color: #eeeeee;
+        .empty {
+          display: none;
         }
       `,
     ];
@@ -156,15 +159,45 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
   })
   viewMoreUrl = '';
 
+  private _postRef: Ref<HTMLSlotElement> = createRef();
+
+  @state()
+  private _isPostEmpty = false;
+
+  private _checkPostEmpty() {
+    const refVal = this._postRef.value;
+    if (refVal) {
+      this._isPostEmpty = refVal.assignedNodes({ flatten: true }).length === 0;
+    }
+  }
+
+  firstUpdated(): void {
+    this._checkPostEmpty();
+  }
+
   render() {
     if (!this.manifestStore) {
       return null;
     }
 
+    const dataSelectors = {
+      contentSummary: this.manifestStore?.generativeInfo
+        ? selectGenerativeType(this.manifestStore?.generativeInfo)
+        : null,
+      producedBy: this.manifestStore?.producer?.name,
+      producedWith: this.manifestStore?.claimGenerator,
+      socialMedia: this.manifestStore?.socialAccounts,
+      aiToolUsed: this.manifestStore?.generativeInfo
+        ? selectGenerativeSoftwareAgents(this.manifestStore?.generativeInfo)
+        : null,
+      web3: this.manifestStore?.web3,
+      alert: this.manifestStore?.alert,
+    };
+
     let alertColor;
 
-    if (this.manifestStore.alert) {
-      switch (this.manifestStore.alert.type) {
+    if (dataSelectors.alert) {
+      switch (dataSelectors.alert.type) {
         case 'warning':
           alertColor = '#f4c571';
           break;
@@ -177,87 +210,89 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
     }
 
     return html`<div id="container-dm-plugin">
+      <cai-minimum-viable-provenance-dm-plugin
+        .manifestStore=${this.manifestStore}
+        .config=${this._config}
+        locale=${this.locale}
+      ></cai-minimum-viable-provenance-dm-plugin>
       <div id="content-container-dm-plugin">
-        <cai-minimum-viable-provenance-dm-plugin
-          .manifestStore=${this.manifestStore}
-          .config=${this._config}
-        ></cai-minimum-viable-provenance-dm-plugin>
-        <slot name="pre"></slot>
         ${this.manifestStore.error === 'error'
-          ? html`
-              <div>${this._config.stringMap['manifest-summary.error']}</div>
-            `
+          ? html` <div>${this.strings['manifest-summary.error']}</div> `
           : html`
-              ${this._config?.sections?.contentSummary
+              ${dataSelectors.contentSummary
                 ? html`
                     <cai-content-summary-dm-plugin
-                      .manifestStore=${this.manifestStore}
+                      .data=${dataSelectors.contentSummary}
                       .config=${this._config}
+                      locale=${this.locale}
                     ></cai-content-summary-dm-plugin>
                   `
                 : nothing}
-              ${this.manifestStore?.alert
+              ${dataSelectors.alert
                 ? html`
                     <div
                       style="background-color: ${alertColor}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
-                      ${this.manifestStore.alert.message}
+                      ${dataSelectors.alert.message}
                     </div>
                   `
                 : nothing}
-              ${this._config?.sections?.producedBy
+              ${dataSelectors.producedBy
                 ? html`
                     <cai-produced-by-dm-plugin
-                      .manifestStore=${this.manifestStore}
+                      .data=${dataSelectors.producedBy}
                       .config=${this._config}
+                      locale=${this.locale}
                     ></cai-produced-by-dm-plugin>
                   `
                 : nothing}
-              ${this._config?.sections?.producedWith
+              ${dataSelectors.producedWith
                 ? html`
                     <cai-produced-with-dm-plugin
+                      .data=${dataSelectors.producedWith}
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
+                      locale=${this.locale}
                     ></cai-produced-with-dm-plugin>
                   `
                 : nothing}
-              ${this.manifestStore?.watermarkProvider
+              ${dataSelectors.socialMedia
                 ? html`
-                    <cai-panel-section-dm-plugin
-                      header=${'Watermarked by'}
-                      helpText=${'The provider of the watermark'}
-                    >
-                      <div>${this.manifestStore.watermarkProvider}</div>
-                    </cai-panel-section-dm-plugin>
-                  `
-                : nothing}
-              ${this._config?.sections?.editsAndActivity
-                ? html`
-                    <cai-edits-and-activity-dm-plugin
-                      .manifestStore=${this.manifestStore}
+                    <cai-social-media-dm-plugin
+                      .data=${dataSelectors.socialMedia}
                       .config=${this._config}
-                    ></cai-edits-and-activity-dm-plugin>
+                      locale=${this.locale}
+                    ></cai-social-media-dm-plugin>
                   `
                 : nothing}
-              ${this._config?.sections?.assetsUsed
+              ${dataSelectors.aiToolUsed
                 ? html`
                     <cai-assets-used-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-assets-used-dm-plugin>
+                    <cai-ai-tool-dm-plugin
+                      .data=${dataSelectors.aiToolUsed}
+                      locale=${this.locale}
+                    ></cai-ai-tool-dm-plugin>
                   `
                 : nothing}
-              ${this._config?.sections?.socialMedia
+              ${dataSelectors.web3
                 ? html`
-                    <cai-social-media-dm-plugin
-                      .manifestStore=${this.manifestStore}
+                    <cai-web3-dm-plugin
+                      .data=${dataSelectors.web3}
                       .config=${this._config}
-                    ></cai-social-media-dm-plugin>
+                      locale=${this.locale}
+                    ></cai-web3-dm-plugin>
                   `
                 : nothing}
             `}
-        <slot></slot>
-        <slot name="post"></slot>
+        <slot
+          ${ref(this._postRef)}
+          class=${classMap({ empty: this._isPostEmpty })}
+          name="post"
+          @slotchange=${() => this._checkPostEmpty()}
+        ></slot>
       </div>
       <div id="view-more-container-dm-plugin">
         ${this.viewMoreUrl
@@ -268,7 +303,7 @@ export class ManifestSummary extends Configurable(LitElement, defaultConfig) {
                 href=${this.viewMoreUrl}
                 target="_blank"
               >
-                ${this._config.stringMap['manifest-summary.viewMore']}
+                ${this.strings['manifest-summary.viewMore']}
               </a>
             `
           : nothing}

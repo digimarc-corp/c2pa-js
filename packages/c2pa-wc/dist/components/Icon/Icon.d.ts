@@ -11,10 +11,13 @@ import '../../../assets/svg/color/logos/adobe-stock.svg';
 import '../../../assets/svg/color/logos/adobe.svg';
 import '../../../assets/svg/color/logos/behance.svg';
 import '../../../assets/svg/color/logos/cai.svg';
+import '../../../assets/svg/color/logos/ethereum.svg';
 import '../../../assets/svg/color/logos/facebook.svg';
 import '../../../assets/svg/color/logos/instagram.svg';
 import '../../../assets/svg/color/logos/lightroom.svg';
+import '../../../assets/svg/color/logos/linkedin.svg';
 import '../../../assets/svg/color/logos/photoshop.svg';
+import '../../../assets/svg/color/logos/solana.svg';
 import '../../../assets/svg/color/logos/truepic.svg';
 import '../../../assets/svg/color/logos/twitter.svg';
 declare global {

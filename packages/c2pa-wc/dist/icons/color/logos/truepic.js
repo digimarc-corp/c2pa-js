@@ -1,4 +1,4 @@
-import{s as i,r as t,$ as a}from"../../../e4c0417e.js";customElements.define("cai-icon-truepic-dm-plugin",class extends i{static get styles(){return t`
+import{s as i,r as t,$ as a}from"../../../e4c0417e.js";class e extends i{static get styles(){return t`
       :host {
         display: inline-block;
         width: var(--cai-icon-width, 16px);
@@ -53,4 +53,4 @@ import{s as i,r as t,$ as a}from"../../../e4c0417e.js";customElements.define("ca
           />
         </g>
       </svg>
-    </div>`}});
+    </div>`}}customElements.define("cai-icon-truepic-dm-plugin",e);export{e as default};
