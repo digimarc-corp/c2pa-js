@@ -228,13 +228,20 @@ export class ManifestSummary extends Configurable(
                     ></cai-content-summary-dm-plugin>
                   `
                 : nothing}
-              ${dataSelectors.alert
+              ${dataSelectors.alert?.message
                 ? html`
                     <div
                       style="background-color: ${alertColor}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
                       ${dataSelectors.alert.message}
                     </div>
+                  `
+                : nothing}
+              ${dataSelectors.alert?.auditTrail
+                ? html`
+                      <div>
+                        <a href="${dataSelectors.alert.auditTrail}" target="_blank"> Audit Trail </a>
+                      </div>
                   `
                 : nothing}
               ${dataSelectors.producedBy
