@@ -83,7 +83,7 @@ import{__decorate as t,e}from"../../b803f408.js";import{w as r,r as n,$ as i,s a
         .empty {
           display: none;
         }
-      `]}_checkPostEmpty(){const t=this._postRef.value;t&&(this._isPostEmpty=0===t.assignedNodes({flatten:!0}).length)}firstUpdated(){this._checkPostEmpty()}render(){var t,e,n,o,a,c,u,l,d,f;if(!this.manifestStore)return null;const p=(null===(t=this.manifestStore)||void 0===t?void 0:t.generativeInfo)?((m=null===(e=this.manifestStore)||void 0===e?void 0:e.generativeInfo).find((t=>"compositeWithTrainedAlgorithmicMedia"===t.type))??m[0])?.type??null:null,v=null===(o=null===(n=this.manifestStore)||void 0===n?void 0:n.producer)||void 0===o?void 0:o.name,h=null===(a=this.manifestStore)||void 0===a?void 0:a.claimGenerator,y=null===(c=this.manifestStore)||void 0===c?void 0:c.socialAccounts,g=(null===(u=this.manifestStore)||void 0===u?void 0:u.generativeInfo)?function(t){return[...new Set(t.map((t=>t?.softwareAgent?.name??t?.softwareAgent)))].filter((t=>void 0!==t))}(null===(l=this.manifestStore)||void 0===l?void 0:l.generativeInfo):null,A=null===(d=this.manifestStore)||void 0===d?void 0:d.web3,b=null===(f=this.manifestStore)||void 0===f?void 0:f.alert;var m;let _;if(b)switch(b.type){case"warning":_="#f4c571";break;case"error":_="#ff7c76";break;default:_="#2dcdcd"}return i`<div id="container-dm-plugin">
+      `]}_checkPostEmpty(){const t=this._postRef.value;t&&(this._isPostEmpty=0===t.assignedNodes({flatten:!0}).length)}firstUpdated(){this._checkPostEmpty()}render(){var t,e,n,o,a,c,u,l,d,f,p,v,h;if(!this.manifestStore)return null;const y=(null===(t=this.manifestStore)||void 0===t?void 0:t.generativeInfo)?((k=null===(e=this.manifestStore)||void 0===e?void 0:e.generativeInfo).find((t=>"compositeWithTrainedAlgorithmicMedia"===t.type))??k[0])?.type??null:null,g=null===(o=null===(n=this.manifestStore)||void 0===n?void 0:n.producer)||void 0===o?void 0:o.name,A=null===(a=this.manifestStore)||void 0===a?void 0:a.claimGenerator,b=Array.isArray(null===(c=this.manifestStore)||void 0===c?void 0:c.socialAccounts)&&(null===(l=null===(u=this.manifestStore)||void 0===u?void 0:u.socialAccounts)||void 0===l?void 0:l.length)>0?null===(d=this.manifestStore)||void 0===d?void 0:d.socialAccounts:null,m=(null===(f=this.manifestStore)||void 0===f?void 0:f.generativeInfo)?function(t){return[...new Set(t.map((t=>t?.softwareAgent?.name??t?.softwareAgent)))].filter((t=>void 0!==t))}(null===(p=this.manifestStore)||void 0===p?void 0:p.generativeInfo):null,_=null===(v=this.manifestStore)||void 0===v?void 0:v.web3,w=null===(h=this.manifestStore)||void 0===h?void 0:h.alert;var k;let j;if(w)switch(w.type){case"warning":j="#f4c571";break;case"error":j="#ff7c76";break;default:j="#2dcdcd"}return i`<div id="container-dm-plugin">
       <cai-minimum-viable-provenance-dm-plugin
         .manifestStore=${this.manifestStore}
         .config=${this._config}
@@ -91,55 +91,55 @@ import{__decorate as t,e}from"../../b803f408.js";import{w as r,r as n,$ as i,s a
       ></cai-minimum-viable-provenance-dm-plugin>
       <div id="content-container-dm-plugin">
         ${"error"===this.manifestStore.error?i` <div>${this.strings["manifest-summary.error"]}</div> `:i`
-              ${p?i`
+              ${y?i`
                     <cai-content-summary-dm-plugin
-                      .data=${p}
+                      .data=${y}
                       .config=${this._config}
                       locale=${this.locale}
                     ></cai-content-summary-dm-plugin>
                   `:r}
-              ${b?i`
+              ${w?i`
                     <div
-                      style="background-color: ${_}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
+                      style="background-color: ${j}; border-radius: 10px; display: flex; justify-content: center; align-items: center; height: 100%; padding: 10px 18px;"
                     >
-                      ${b.message}
+                      ${w.message}
                     </div>
                   `:r}
-              ${v?i`
+              ${g?i`
                     <cai-produced-by-dm-plugin
-                      .data=${v}
+                      .data=${g}
                       .config=${this._config}
                       locale=${this.locale}
                     ></cai-produced-by-dm-plugin>
                   `:r}
-              ${h?i`
+              ${A?i`
                     <cai-produced-with-dm-plugin
-                      .data=${h}
+                      .data=${A}
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                       locale=${this.locale}
                     ></cai-produced-with-dm-plugin>
                   `:r}
-              ${y?i`
+              ${b?i`
                     <cai-social-media-dm-plugin
-                      .data=${y}
+                      .data=${b}
                       .config=${this._config}
                       locale=${this.locale}
                     ></cai-social-media-dm-plugin>
                   `:r}
-              ${g?i`
+              ${m?i`
                     <cai-assets-used-dm-plugin
                       .manifestStore=${this.manifestStore}
                       .config=${this._config}
                     ></cai-assets-used-dm-plugin>
                     <cai-ai-tool-dm-plugin
-                      .data=${g}
+                      .data=${m}
                       locale=${this.locale}
                     ></cai-ai-tool-dm-plugin>
                   `:r}
-              ${A?i`
+              ${_?i`
                     <cai-web3-dm-plugin
-                      .data=${A}
+                      .data=${_}
                       .config=${this._config}
                       locale=${this.locale}
                     ></cai-web3-dm-plugin>
