@@ -31,7 +31,7 @@ export declare function selectGenerativeInfo(manifest: Manifest): GenerativeInfo
  * Returns a set of software agents
  * @param generativeInfo - generative info from manifest
  */
-export declare function selectGenerativeSoftwareAgents(generativeInfo: GenerativeInfo[]): string[];
+export declare function selectGenerativeSoftwareAgents(generativeInfo: GenerativeInfo[]): string[] | null;
 /**
  * Returns the generative type (trained , legacy or composite)
  * @param generativeInfo - generative info from manifest
