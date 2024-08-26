@@ -186,7 +186,9 @@ export class ManifestSummary extends Configurable(
         : null,
       producedBy: this.manifestStore?.producer?.name,
       producedWith: this.manifestStore?.claimGenerator,
-      socialMedia: this.manifestStore?.socialAccounts,
+      socialMedia: (Array.isArray(this.manifestStore?.socialAccounts) && this.manifestStore?.socialAccounts?.length > 0 )
+        ? this.manifestStore?.socialAccounts
+        : null,
       aiToolUsed: this.manifestStore?.generativeInfo
         ? selectGenerativeSoftwareAgents(this.manifestStore?.generativeInfo)
         : null,
